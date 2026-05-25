@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Not found — The Happiness Collective</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#1A1816" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@400;500;600&family=Noto+Serif+SC:wght@700&display=swap" />
+
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%231A1816'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-style='italic' font-size='34' fill='%23F1E9DA'>thc</text><text x='80%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-size='34' fill='%23D9542B'>.</text></svg>" />
+
+<style>
+  :root{
+    --bone:#F1E9DA; --ink:#1A1816; --ink-soft:#5B544A;
+    --accent:#D9542B; --rule:rgba(26,24,22,.18);
+    --pad-x: clamp(20px, 5vw, 80px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bone);color:var(--ink);
+    font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;
+    min-height:100svh;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--bone)}
+
+  .brand{
+    padding:24px var(--pad-x);
+    font-family:'Cormorant Garamond',serif;font-weight:400;font-size:18px;line-height:1;letter-spacing:-.01em;
+    border-bottom:1px solid var(--rule);
+  }
+  .brand em{font-style:italic;font-weight:300}
+  .stop{color:var(--accent)}
+
+  main{
+    flex:1;display:grid;grid-template-columns:1fr;align-items:center;
+    padding:8vh var(--pad-x);max-width:1280px;margin:0 auto;width:100%;
+    position:relative;
+  }
+  .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(180px, 32vw, 480px);line-height:.85;letter-spacing:-.03em;color:var(--accent);
+    opacity:.18;position:absolute;right:var(--pad-x);bottom:-4vh;pointer-events:none;
+  }
+  .eyebrow{
+    color:var(--accent);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";display:block;width:24px;height:1px;background:var(--accent)}
+  h1{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(48px, 8vw, 112px);line-height:.98;letter-spacing:-.025em;
+    max-width:16ch;
+  }
+  h1 em{font-style:italic;font-weight:300}
+  .sub{
+    margin-top:28px;max-width:48ch;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(18px,1.6vw,24px);line-height:1.45;color:var(--ink-soft);
+  }
+  .actions{margin-top:48px;display:flex;gap:18px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    transition:transform .3s ease, background .3s ease, color .3s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--bone)}
+  .btn-primary:hover{background:var(--accent)}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bone)}
+  .btn .arrow{transition:transform .3s ease}
+  .btn:hover .arrow{transform:translateX(4px)}
+  footer{
+    padding:24px var(--pad-x);font-size:12px;letter-spacing:.08em;color:var(--ink-soft);
+    border-top:1px solid var(--rule);
+  }
+  footer .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin:0 8px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<a href="/" class="brand">the&nbsp;<em>happiness</em>&nbsp;collective<span class="stop">.</span></a>
+
+<main>
+  <div class="num" aria-hidden="true">404</div>
+  <div>
+    <div class="eyebrow">404 · A room not found</div>
+    <h1>This room <em>isn't here</em><span class="stop">.</span></h1>
+    <p class="sub">Either the door has been moved, or you were sent the wrong key. We have other rooms, though, and they're all open.</p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Return to the house <span class="arrow">→</span></a>
+      <a href="/projects.html" class="btn btn-ghost">See selected work <span class="arrow">→</span></a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © MMXXVI · The Happiness Collective Pte Ltd <span class="dot"></span> Singapore
+</footer>
+
+</body>
+</html>

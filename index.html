@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>The Happiness Collective — A marketing house for hotels, destinations & hospitality brands of Asia & the Pacific.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="The Happiness Collective is a Singapore marketing house for hotels, destinations and hospitality brands of Asia and the Pacific. Brand, go-to-market, partnerships, events." />
+<meta name="theme-color" content="#1A1816" />
+<meta name="author" content="Justin Ong" />
+<link rel="canonical" href="https://www.thehappinesscollective.io/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Happiness Collective" />
+<meta property="og:title" content="The Happiness Collective — Joyful luxury, in Asia's voice." />
+<meta property="og:description" content="A small Singapore house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific." />
+<meta property="og:url" content="https://www.thehappinesscollective.io/" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&h=630&q=80" />
+<meta property="og:locale" content="en_SG" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Happiness Collective — Joyful luxury, in Asia's voice." />
+<meta name="twitter:description" content="A small Singapore house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&h=630&q=80" />
+
+<!-- Apple / mobile -->
+<meta name="apple-mobile-web-app-title" content="THC." />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='32' fill='%231A1816'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-style='italic' font-size='92' fill='%23F1E9DA'>thc</text><text x='78%25' y='68%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-size='92' fill='%23D9542B'>.</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;500;700&family=Caveat:wght@400;500;600&display=swap" />
+
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%231A1816'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-style='italic' font-size='34' fill='%23F1E9DA'>thc</text><text x='80%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-size='34' fill='%23D9542B'>.</text></svg>" />
+
+<style>
+  :root{
+    /* palette — from the brand book */
+    --bone:#F1E9DA;
+    --bone-2:#E8DECB;
+    --paper:#F8F2E6;
+    --ink:#1A1816;
+    --ink-2:#2A2520;
+    --ink-soft:#5B544A;
+    --accent:#D9542B;           /* persimmon */
+    --accent-soft:rgba(217,84,43,.10);
+    --rule:rgba(26,24,22,.18);
+    --rule-light:rgba(241,233,218,.22);
+
+    /* fluid type — Apple-style large-display posture */
+    --t-hero: clamp(56px, 11vw, 168px);
+    --t-display: clamp(40px, 7vw, 108px);
+    --t-h1: clamp(34px, 5vw, 72px);
+    --t-h2: clamp(26px, 3.4vw, 48px);
+    --t-lead: clamp(18px, 1.6vw, 24px);
+    --t-body: clamp(15px, 1.05vw, 17px);
+    --t-cap: 12px;
+
+    /* layout */
+    --pad-x: clamp(20px, 5vw, 80px);
+    --max-w: 1280px;
+    --nav-h: 56px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bone);
+    color:var(--ink);
+    font-family:'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-weight:400;
+    font-size:var(--t-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:var(--bone)}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  /* Focus-visible — keyboard users get a persimmon outline, mouse users don't */
+  :focus{outline:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  .btn:focus-visible{outline-offset:5px}
+
+  /* Skip link */
+  .skip{
+    position:absolute;left:12px;top:-100px;z-index:100;
+    background:var(--ink);color:var(--bone);padding:12px 18px;border-radius:6px;
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    transition:top .2s ease;
+  }
+  .skip:focus{top:12px}
+
+  /* utilities */
+  .serif{font-family:'Cormorant Garamond', ui-serif, Georgia, serif;font-weight:400}
+  .serif-it{font-family:'Cormorant Garamond', ui-serif, Georgia, serif;font-style:italic;font-weight:300}
+  .sans{font-family:'Manrope', ui-sans-serif, system-ui, sans-serif}
+  .cn{font-family:'Noto Serif SC', serif;font-weight:500}
+  .hand{font-family:'Caveat', cursive;font-weight:500}
+  .accent{color:var(--accent)}
+  .ink-soft{color:var(--ink-soft)}
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size:var(--t-cap);
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .stop{color:var(--accent)}     /* the persimmon period */
+  .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+  .rule{height:1px;background:currentColor;opacity:.18;border:0}
+
+  /* ─── Nav ─── Apple-style: thin, sticky, frosted ─── */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    height:var(--nav-h);
+    backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+    background:color-mix(in oklab, var(--bone) 78%, transparent);
+    border-bottom:1px solid var(--rule);
+    transition:background .3s ease, border-color .3s ease;
+  }
+  .nav-inner{
+    max-width:var(--max-w);margin:0 auto;height:100%;
+    padding:0 var(--pad-x);
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:13px;letter-spacing:.01em;
+  }
+  .brand{
+    font-family:'Cormorant Garamond',serif;font-weight:400;
+    font-size:18px;letter-spacing:-.01em;line-height:1;
+    display:inline-flex;align-items:baseline;gap:0;
+  }
+  .brand em{font-style:italic;font-weight:300}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{
+    font-weight:500;color:var(--ink);opacity:.78;
+    transition:opacity .2s ease;
+  }
+  .nav-links a:hover{opacity:1}
+  .nav-cta{
+    font-weight:600;color:var(--ink);
+    border-bottom:1px solid var(--accent);
+    padding-bottom:2px;
+  }
+  .nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)}
+  .nav-burger span{display:block;width:22px;height:1.5px;background:currentColor;margin:5px 0;transition:transform .25s ease,opacity .2s ease}
+  .nav.open .nav-burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav.open .nav-burger span:nth-child(2){opacity:0}
+  .nav.open .nav-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ─── Hero ─── editorial, big, quiet ─── */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    padding:calc(var(--nav-h) + 6vh) 0 8vh;
+    display:flex;flex-direction:column;justify-content:center;
+    background:var(--bone);
+    overflow:hidden;
+  }
+  .hero .container{position:relative;z-index:2}
+  .hero-eyebrow{
+    display:flex;align-items:center;gap:14px;
+    color:var(--accent);margin-bottom:28px;
+  }
+  .hero-eyebrow::after{
+    content:"";display:block;width:48px;height:1px;background:var(--accent);
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:var(--t-hero);line-height:.92;letter-spacing:-.025em;
+    max-width:14ch;
+  }
+  .hero h1 em{font-style:italic;font-weight:300;color:var(--ink)}
+  .hero-sub{
+    margin-top:36px;max-width:48ch;
+    font-size:var(--t-lead);line-height:1.4;
+    color:var(--ink-soft);font-weight:400;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+  }
+  .hero-meta{
+    margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .hero-meta .seal{
+    width:64px;height:64px;border-radius:6px;
+    background:var(--ink);color:var(--bone);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:'Noto Serif SC',serif;font-weight:700;font-size:36px;line-height:1;
+  }
+  .hero-meta .seal.accent{background:var(--accent)}
+  .hero-meta .label{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;
+  }
+  .hero-meta .label span{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;text-transform:none;letter-spacing:0;color:var(--ink);margin-top:4px;font-weight:300}
+  .scroll-hint{
+    position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);
+    display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.7;
+  }
+  .scroll-hint::after{
+    content:"";width:1px;height:36px;background:var(--ink-soft);opacity:.5;
+    animation:hint 2.4s ease-in-out infinite;
+  }
+  @keyframes hint{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+  /* ─── Marquee strip — places we work ─── */
+  .strip{
+    background:var(--ink);color:var(--bone);
+    padding:20px 0;overflow:hidden;border-top:1px solid var(--ink-2);border-bottom:1px solid var(--ink-2);
+  }
+  .strip-track{
+    display:flex;gap:48px;white-space:nowrap;
+    animation:marquee 38s linear infinite;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.4vw,30px);
+    color:rgba(241,233,218,.85);
+  }
+  .strip-track span{display:inline-flex;align-items:center;gap:48px;flex-shrink:0}
+  .strip-track .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ─── Section primitives ─── */
+  section{position:relative}
+  .sec{padding:clamp(80px, 12vh, 160px) 0}
+  .sec-eyebrow{
+    color:var(--accent);margin-bottom:24px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .sec-eyebrow::before{content:"";display:block;width:24px;height:1px;background:var(--accent)}
+  .sec-title{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:var(--t-display);line-height:.98;letter-spacing:-.02em;
+    max-width:22ch;
+  }
+  .sec-title em{font-style:italic;font-weight:300}
+  .sec-lead{
+    margin-top:28px;max-width:60ch;
+    color:var(--ink-soft);font-size:var(--t-lead);line-height:1.5;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  }
+  .sec.dark{background:var(--ink);color:var(--bone)}
+  .sec.dark .sec-lead{color:rgba(241,233,218,.7)}
+  .sec.paper{background:var(--paper)}
+
+  /* ─── Manifesto ─── full-bleed, big quote ─── */
+  .manifesto{padding:clamp(120px,18vh,220px) 0;background:var(--paper)}
+  .manifesto .container{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,64px);align-items:flex-start}
+  .quote-mark{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(120px,18vw,260px);line-height:.55;color:var(--accent);
+    margin-top:-.12em;
+  }
+  .manifesto p{
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-size:var(--t-h1);
+    line-height:1.08;letter-spacing:-.01em;max-width:18ch;
+  }
+  .manifesto p em{font-style:italic;font-weight:300;color:var(--accent)}
+  .manifesto .sig{margin-top:36px;display:flex;align-items:center;gap:16px}
+  .manifesto .sig-rule{width:64px;height:2px;background:var(--accent)}
+  .manifesto .sig .small{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;
+  }
+
+  /* ─── Services ─── 5 things, done quietly well ─── */
+  .services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:72px}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--rule);
+  }
+  .svc{
+    padding:40px 24px 32px 0;
+    border-right:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    transition:background .3s ease;
+    position:relative;
+  }
+  .svc:nth-child(4n){border-right:0;padding-right:0}
+  .svc:hover{background:color-mix(in oklab, var(--accent) 4%, transparent)}
+  .svc .n{
+    font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--accent);
+    font-size:36px;line-height:1;display:block;margin-bottom:16px;
+  }
+  .svc h3{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,2.2vw,30px);line-height:1.05;margin-bottom:14px;
+  }
+  .svc p{
+    font-size:14px;line-height:1.55;color:var(--ink-soft);max-width:30ch;
+  }
+  .services-foot{
+    margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .services-foot .seal{
+    width:72px;height:72px;border-radius:6px;background:var(--accent);color:var(--bone);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:'Noto Serif SC',serif;font-weight:700;font-size:42px;line-height:1;
+    flex-shrink:0;
+  }
+  .services-foot .text{display:flex;flex-direction:column;gap:6px}
+  .services-foot .text .a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.15}
+  .services-foot .text .b{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+  /* ─── Feature blocks (Apple-style alternating image/text) ─── */
+  .feature{padding:clamp(60px,8vh,100px) 0}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,6vw,96px);align-items:center}
+  .feature.flip .feature-grid{grid-template-columns:1fr 1fr;direction:rtl}
+  .feature.flip .feature-grid>*{direction:ltr}
+  .feature-media{
+    aspect-ratio:4/5;border-radius:8px;overflow:hidden;
+    background:var(--ink-2);position:relative;
+  }
+  .feature-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+  .feature-media:hover img{transform:scale(1.03)}
+  .feature-caption{
+    position:absolute;left:18px;bottom:14px;color:var(--bone);
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    text-shadow:0 1px 8px rgba(0,0,0,.4);opacity:.9;
+  }
+  .feature-text h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:var(--t-h1);line-height:1.02;letter-spacing:-.015em;
+    margin-bottom:24px;max-width:18ch;
+  }
+  .feature-text h2 em{font-style:italic}
+  .feature-text p{
+    font-size:var(--t-lead);line-height:1.5;color:var(--ink-soft);max-width:46ch;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  }
+  .feature-text .meta{
+    margin-top:36px;display:grid;grid-template-columns:repeat(3,auto);gap:36px;
+  }
+  .feature-text .meta div{display:flex;flex-direction:column;gap:6px}
+  .feature-text .meta .num{
+    font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--accent);
+    font-size:48px;line-height:1;
+  }
+  .feature-text .meta .lbl{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;
+  }
+
+  /* ─── Hero strip — full-bleed image with text overlay ─── */
+  .vista{
+    position:relative;min-height:80svh;
+    background:var(--ink) center/cover no-repeat;
+    color:var(--bone);
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .vista::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 100%);
+  }
+  .vista .container{position:relative;z-index:2;padding-top:120px;padding-bottom:80px}
+  .vista h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:var(--t-display);line-height:.98;letter-spacing:-.02em;
+    max-width:18ch;
+  }
+  .vista h2 em{font-style:italic;color:var(--accent)}
+  .vista p{
+    margin-top:24px;max-width:50ch;font-size:var(--t-lead);line-height:1.5;
+    font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(241,233,218,.85);
+  }
+
+  /* ─── Past projects preview ─── */
+  .projects-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:56px}
+  .projects-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);
+  }
+  .proj{
+    display:block;background:var(--paper);border:1px solid var(--rule);
+    border-radius:8px;overflow:hidden;
+    transition:transform .5s cubic-bezier(.2,.6,.2,1), border-color .3s ease;
+  }
+  .proj:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .proj-media{aspect-ratio:4/3;background:var(--ink-2);position:relative;overflow:hidden}
+  .proj-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+  .proj:hover .proj-media img{transform:scale(1.04)}
+  .proj-body{padding:24px 24px 28px}
+  .proj-tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+  .proj-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:24px;line-height:1.1;margin-bottom:8px}
+  .proj-meta{font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .proj-link{margin-top:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .proj-link::after{content:" →";color:var(--accent)}
+
+  /* ─── Founder section ─── */
+  .founder{padding:clamp(80px,12vh,160px) 0;background:var(--bone)}
+  .founder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(24px,6vw,96px);align-items:center}
+  .founder-portrait{
+    aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--ink-2);position:relative;
+  }
+  .founder-portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) contrast(1.02)}
+  .founder-text h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:var(--t-display);line-height:.98;letter-spacing:-.02em;margin-bottom:12px;
+  }
+  .founder-text h2 em{font-style:italic;font-weight:300}
+  .founder-text .rule{height:2px;background:var(--accent);width:80px;margin:18px 0 28px;border:0;opacity:1}
+  .founder-text .bio{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:var(--t-lead);line-height:1.5;color:var(--ink-soft);max-width:52ch;
+  }
+  .founder-stats{
+    margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    max-width:560px;
+  }
+  .founder-stats div{display:flex;flex-direction:column;gap:6px}
+  .founder-stats .n{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--accent);font-size:56px;line-height:.9}
+  .founder-stats .l{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;line-height:1.4}
+  .founder-creds{
+    margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 14px;
+    font-size:12px;letter-spacing:.06em;color:var(--ink-soft);
+  }
+  .founder-creds span{
+    padding:6px 12px;border:1px solid var(--rule);border-radius:999px;
+    background:var(--paper);
+  }
+
+  /* ─── Approach / 3 steps ─── */
+  .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
+  .approach .step{padding-top:28px;border-top:1px solid var(--rule-light)}
+  .approach.sec.dark .step{border-top-color:var(--rule-light)}
+  .approach .step .n{
+    font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--accent);
+    font-size:64px;line-height:.9;margin-bottom:18px;display:block;
+  }
+  .approach .step h3{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:clamp(28px,2.6vw,40px);line-height:1.05;margin-bottom:16px;
+  }
+  .approach .step p{
+    font-size:15px;line-height:1.6;color:rgba(241,233,218,.72);max-width:32ch;
+  }
+
+  /* ─── Contact / CTA ─── */
+  .cta{
+    padding:clamp(100px,16vh,200px) 0;background:var(--accent);color:var(--bone);
+    text-align:left;position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:"悦";position:absolute;right:-4%;bottom:-10%;
+    font-family:'Noto Serif SC',serif;font-weight:700;
+    font-size:clamp(280px,40vw,640px);line-height:.85;color:rgba(241,233,218,.08);
+    pointer-events:none;
+  }
+  .cta .container{position:relative;z-index:2}
+  .cta h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(48px,8vw,128px);line-height:.95;letter-spacing:-.02em;
+    max-width:14ch;
+  }
+  .cta h2 em{font-style:italic}
+  .cta .lead{
+    margin-top:24px;max-width:42ch;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:var(--t-lead);line-height:1.4;color:rgba(241,233,218,.92);
+  }
+  .cta-actions{margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 26px;border-radius:999px;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    transition:transform .3s ease, background .3s ease, color .3s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--bone)}
+  .btn-primary:hover{background:var(--bone);color:var(--ink)}
+  .btn-ghost{border:1px solid rgba(241,233,218,.55);color:var(--bone)}
+  .btn-ghost:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+  .btn .arrow{transition:transform .3s ease}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* ─── Contact grid ─── */
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:start;
+  }
+  .contact-left h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(48px,7vw,108px);line-height:.95;letter-spacing:-.02em;max-width:14ch;
+  }
+  .contact-left h2 em{font-style:italic}
+  .contact-alts{
+    margin-top:48px;display:flex;flex-direction:column;gap:14px;
+  }
+  .contact-alt{
+    display:flex;flex-direction:column;gap:4px;
+    padding:18px 0;border-top:1px solid rgba(241,233,218,.22);
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .contact-alt:last-child{border-bottom:1px solid rgba(241,233,218,.22)}
+  .contact-alt:hover{border-color:var(--bone);transform:translateX(4px)}
+  .contact-alt-lbl{
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(241,233,218,.65);font-weight:600;
+  }
+  .contact-alt-val{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(20px,1.8vw,26px);color:var(--bone);line-height:1.2;
+  }
+
+  .contact-right{position:relative}
+  .contact-form{
+    background:var(--bone);color:var(--ink);
+    padding:clamp(28px,3vw,44px);border-radius:8px;
+    display:flex;flex-direction:column;gap:18px;
+    box-shadow:0 30px 80px -30px rgba(26,24,22,.45);
+    position:relative;
+  }
+  .form-eyebrow{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:clamp(24px,2.2vw,32px);line-height:1.1;color:var(--ink);
+    margin-bottom:8px;
+  }
+  .form-row{display:flex;flex-direction:column;gap:8px}
+  .form-row label{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;
+  }
+  .form-row label .optional{
+    text-transform:none;letter-spacing:0;font-style:italic;
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-size:14px;
+    color:var(--ink-soft);opacity:.7;margin-left:6px;
+  }
+  .form-row input, .form-row select, .form-row textarea{
+    width:100%;
+    background:transparent;
+    border:0;border-bottom:1px solid var(--rule);
+    padding:10px 0 12px;
+    font-family:'Manrope',sans-serif;font-size:16px;font-weight:400;color:var(--ink);
+    transition:border-color .25s ease;
+    border-radius:0;
+    -webkit-appearance:none;appearance:none;
+  }
+  .form-row textarea{resize:vertical;min-height:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.5}
+  .form-row select{
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23D9542B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") right 4px center no-repeat;
+    background-size:12px 8px;padding-right:24px;cursor:pointer;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+    outline:none;border-bottom-color:var(--accent);
+  }
+  .form-row input::placeholder, .form-row textarea::placeholder{color:var(--ink-soft);opacity:.55}
+
+  .form-submit{margin-top:14px;align-self:flex-start;background:var(--ink);color:var(--bone);cursor:pointer;border:0;font-family:'Manrope',sans-serif}
+  .form-submit:hover{background:var(--accent);color:var(--bone)}
+  .form-submit:disabled{opacity:.6;cursor:wait}
+
+  .form-foot{
+    margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:15px;color:var(--ink-soft);line-height:1.45;
+  }
+  .form-thanks{
+    margin-top:6px;padding:14px 16px;
+    background:var(--accent-soft);border-left:2px solid var(--accent);
+    color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.4;
+  }
+  .form-error{
+    margin-top:6px;padding:14px 16px;
+    background:rgba(26,24,22,.05);border-left:2px solid var(--ink);
+    color:var(--ink-soft);font-size:14px;line-height:1.5;
+  }
+  .form-error a{color:var(--accent);text-decoration:underline}
+
+  /* ─── Footer ─── */
+  footer{background:var(--ink);color:var(--bone);padding:64px 0 40px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+  .foot-brand{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:36px;line-height:1;letter-spacing:-.01em}
+  .foot-brand em{font-style:italic;font-weight:300}
+  .foot-tag{margin-top:18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:rgba(241,233,218,.65);max-width:32ch;line-height:1.4}
+  .foot-col h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{font-size:14px;color:rgba(241,233,218,.78);transition:color .2s ease}
+  .foot-col a:hover{color:var(--bone)}
+  .foot-bot{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    padding-top:28px;border-top:1px solid rgba(241,233,218,.12);
+    font-size:12px;letter-spacing:.08em;color:rgba(241,233,218,.55);
+  }
+  .foot-bot .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin:0 8px;vertical-align:middle}
+
+  /* ─── Reveal-on-scroll ─── */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.6,.2,1), transform .9s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d2{transition-delay:.08s}
+  .reveal.d3{transition-delay:.16s}
+  .reveal.d4{transition-delay:.24s}
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px){
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .svc{border-right:1px solid var(--rule)!important;padding-right:24px!important}
+    .svc:nth-child(2n){border-right:0!important;padding-right:0!important}
+    .projects-grid{grid-template-columns:1fr 1fr}
+    .feature-grid,.founder-grid,.manifesto .container{grid-template-columns:1fr;gap:36px}
+    .feature.flip .feature-grid{direction:ltr}
+    .manifesto p{font-size:clamp(28px,6vw,48px)}
+    .quote-mark{font-size:clamp(80px,16vw,120px)}
+    .foot-top{grid-template-columns:1fr 1fr;gap:36px}
+    .approach-grid{grid-template-columns:1fr;gap:32px}
+    .contact-grid{grid-template-columns:1fr;gap:48px}
+  }
+  @media (max-width: 640px){
+    .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:24px;border-top:1px solid var(--rule)}
+    .nav-links.open{display:flex}
+    .nav-links a{font-size:22px;font-family:'Cormorant Garamond',serif;font-style:italic;opacity:1}
+    .nav-burger{display:block}
+    .projects-grid{grid-template-columns:1fr}
+    .services-grid{grid-template-columns:1fr}
+    .svc{border-right:0!important;padding-right:0!important}
+    .founder-stats{grid-template-columns:repeat(3,1fr);gap:14px}
+    .founder-stats .n{font-size:40px}
+    .hero{min-height:88svh}
+    .cta-actions{flex-direction:column;align-items:flex-start}
+    .btn{width:100%;justify-content:center}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .strip-track{animation:none}
+    .scroll-hint::after{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ── Navigation ── -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">the&nbsp;<em>happiness</em>&nbsp;collective<span class="stop">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#practice">Practice</a>
+      <a href="#approach">Approach</a>
+      <a href="projects.html">Work</a>
+      <a href="#founder">About</a>
+      <a href="#contact" class="nav-cta">Begin a conversation</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<main id="main">
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-eyebrow eyebrow reveal">A Marketing &amp; Strategy House · Singapore</div>
+    <h1 class="reveal d2">
+      Joyful luxury,<br>
+      in <em>Asia's</em> voice<span class="stop">.</span>
+    </h1>
+    <p class="hero-sub reveal d3">
+      A small house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific. We trade in attention, in feeling, and in the quiet craft of making places loved.
+    </p>
+    <div class="hero-meta reveal d4">
+      <div class="seal">悦</div>
+      <div class="label">
+        悦 · yuè
+        <span>Joy, delight, to please.</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ── Marquee strip — markets ── -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>
+      Singapore <span class="dot"></span>
+      Bangkok <span class="dot"></span>
+      Tokyo <span class="dot"></span>
+      Seoul <span class="dot"></span>
+      Hong Kong <span class="dot"></span>
+      Bali <span class="dot"></span>
+      Hanoi <span class="dot"></span>
+      Kuala Lumpur <span class="dot"></span>
+      Shanghai <span class="dot"></span>
+      Manila <span class="dot"></span>
+      Phuket <span class="dot"></span>
+      Hokkaido <span class="dot"></span>
+      Sydney <span class="dot"></span>
+    </span>
+    <span aria-hidden="true">
+      Singapore <span class="dot"></span>
+      Bangkok <span class="dot"></span>
+      Tokyo <span class="dot"></span>
+      Seoul <span class="dot"></span>
+      Hong Kong <span class="dot"></span>
+      Bali <span class="dot"></span>
+      Hanoi <span class="dot"></span>
+      Kuala Lumpur <span class="dot"></span>
+      Shanghai <span class="dot"></span>
+      Manila <span class="dot"></span>
+      Phuket <span class="dot"></span>
+      Hokkaido <span class="dot"></span>
+      Sydney <span class="dot"></span>
+    </span>
+  </div>
+</div>
+
+<!-- ── Manifesto ── -->
+<section class="manifesto">
+  <div class="container">
+    <div class="quote-mark reveal" aria-hidden="true">&ldquo;</div>
+    <div>
+      <p class="reveal d2">
+        We believe luxury, today,<br>
+        is <em>the gift of time</em> ——<br>
+        and the rare pleasure of<br>
+        being looked after, well<span class="stop">.</span>
+      </p>
+      <div class="sig reveal d3">
+        <span class="sig-rule"></span>
+        <span class="small">— Our manifesto, in one line —</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services / Practice ── -->
+<section class="sec" id="practice">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <div class="eyebrow sec-eyebrow reveal">02 · The Practice</div>
+        <h2 class="sec-title reveal d2">Five things,<br><em>done quietly well</em><span class="stop">.</span></h2>
+      </div>
+      <p class="sec-lead reveal d3" style="max-width:42ch;margin-top:0">
+        We are deliberately small. We pick the rooms we enter, and we stay until the work is right.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc reveal">
+        <span class="n">01.</span>
+        <h3>Brand &amp; positioning</h3>
+        <p>For new hotels, refreshes, and DMOs finding their voice — the architecture beneath the welcome.</p>
+      </div>
+      <div class="svc reveal d2">
+        <span class="n">02.</span>
+        <h3>Go-to-market in APAC</h3>
+        <p>Trade partners, source markets, on-the-ground activations from Singapore to Seoul to Hokkaido.</p>
+      </div>
+      <div class="svc reveal d3">
+        <span class="n">03.</span>
+        <h3>Partnerships &amp; OTA strategy</h3>
+        <p>B2B distribution, bedbank &amp; OTA contracts that perform — built on relationships, measured in nights.</p>
+      </div>
+      <div class="svc reveal d4">
+        <span class="n">04.</span>
+        <h3>Events &amp; trade</h3>
+        <p>ITB, ATM, PATA, WTM — turning rooms full of strangers into rooms full of partners.</p>
+      </div>
+    </div>
+
+    <div class="services-foot reveal">
+      <div class="seal">悦</div>
+      <div class="text">
+        <div class="a">05. The fifth thing — <span class="accent">good hospitality, to one another.</span></div>
+        <div class="b">Our house rule. It shows up in everything we make.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feature: Quiet luxury ── -->
+<section class="feature">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-media reveal">
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80" alt="A quiet hotel suite at golden hour with long, soft light" loading="lazy" />
+        <div class="feature-caption">Pillar I · Quiet luxury</div>
+      </div>
+      <div class="feature-text reveal d2">
+        <div class="eyebrow sec-eyebrow">Pillar I</div>
+        <h2>Quiet luxury<span class="stop">.</span></h2>
+        <p>The kind that doesn't announce itself. The 12-room ryokan on the Noto coast. The reopening that doesn't shout, but is fully booked by the second weekend.</p>
+        <div class="meta">
+          <div><span class="num">15+</span><span class="lbl">Years in luxury<br>&amp; lifestyle</span></div>
+          <div><span class="num">13</span><span class="lbl">Markets &amp;<br>alphabets</span></div>
+          <div><span class="num">∞</span><span class="lbl">Hotels visited<br>&amp; remembered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Vista — full-bleed APAC ── -->
+<section class="vista" style="background-image:url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=2400&q=80')" aria-label="Asia-Pacific landscape">
+  <div class="container">
+    <div class="eyebrow reveal" style="color:var(--accent);margin-bottom:24px;">A Region, Not a Market</div>
+    <h2 class="reveal d2">Thirteen markets.<br>As many <em>alphabets</em><span class="stop">.</span></h2>
+    <p class="reveal d3">We don't apply global playbooks to Asian destinations. We start with the room, the route, the regulator — and write a plan that could only have been written for you.</p>
+  </div>
+</section>
+
+<!-- ── Feature: Warm intelligence (flipped) ── -->
+<section class="feature paper" style="background:var(--paper)">
+  <div class="container">
+    <div class="feature-grid">
+      <div class="feature-text reveal">
+        <div class="eyebrow sec-eyebrow">Pillar II</div>
+        <h2>Warm intelligence<span class="stop">.</span></h2>
+        <p>Data with a pulse. We measure what matters — nights, source markets, channel mix — then we sit with the GM, the DMO, the brand director, and we figure out what to do about it.</p>
+        <div class="meta">
+          <div><span class="num">3-5×</span><span class="lbl">Average<br>ROAS</span></div>
+          <div><span class="num">20%</span><span class="lbl">Visitor growth<br>target</span></div>
+          <div><span class="num">30+</span><span class="lbl">Partners in<br>each pipeline</span></div>
+        </div>
+      </div>
+      <div class="feature-media reveal d2">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80" alt="A modern hotel interior with warm light and considered detail" loading="lazy" />
+        <div class="feature-caption">Pillar II · Warm intelligence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Projects preview ── -->
+<section class="sec" id="work" style="background:var(--bone)">
+  <div class="container">
+    <div class="projects-head">
+      <div>
+        <div class="eyebrow sec-eyebrow reveal">04 · Selected Work</div>
+        <h2 class="sec-title reveal d2">Rooms we've been in<span class="stop">.</span></h2>
+      </div>
+      <a href="projects.html" class="btn btn-ghost reveal d3" style="border-color:var(--ink);color:var(--ink)">
+        See all work <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="projects-grid">
+      <a class="proj reveal" href="projects.html#klook">
+        <div class="proj-media">
+          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1400&q=80" alt="Tokyo neon and crossing — experience commerce in motion" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <div class="proj-tag">Klook · Experience Commerce</div>
+          <h3 class="proj-title">Distribution at the speed of attention.</h3>
+          <p class="proj-meta">Strategic partnerships across Asia-Pacific. Scaling experiences, attractions, and rail for the region's largest experience marketplace.</p>
+          <div class="proj-link">Read the room</div>
+        </div>
+      </a>
+
+      <a class="proj reveal d2" href="projects.html#pata">
+        <div class="proj-media">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80" alt="A long view across an Asia-Pacific city skyline at dusk" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <div class="proj-tag">PATA · 2026–2028</div>
+          <h3 class="proj-title">A seat at the regional table.</h3>
+          <p class="proj-meta">Elected to the Board of the Pacific Asia Travel Association. Keynote at the 75th PATA Annual Summit, South Korea.</p>
+          <div class="proj-link">Read the room</div>
+        </div>
+      </a>
+
+      <a class="proj reveal d3" href="projects.html#hbx">
+        <div class="proj-media">
+          <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1400&q=80" alt="A grand hotel facade in warm evening light" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <div class="proj-tag">HBX Group · MarketHub Asia</div>
+          <h3 class="proj-title">The plumbing of hospitality.</h3>
+          <p class="proj-meta">Bedbank &amp; B2B distribution across the region. Convening the trade through MarketHub Asia — partnerships built for nights, not impressions.</p>
+          <div class="proj-link">Read the room</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Approach — 3-step on dark ── -->
+<section class="sec dark approach" id="approach">
+  <div class="container">
+    <div class="eyebrow sec-eyebrow reveal" style="color:var(--accent)">05 · The Approach</div>
+    <h2 class="sec-title reveal d2" style="color:var(--bone)">Assess. Strategise.<br><em>Execute</em><span class="stop">.</span></h2>
+    <p class="sec-lead reveal d3" style="color:rgba(241,233,218,.7);max-width:50ch">
+      No vast retainers, no opaque dashboards. A small team, a clear plan, and the rare pleasure of someone who picks up the phone.
+    </p>
+
+    <div class="approach-grid">
+      <div class="step reveal">
+        <span class="n">i.</span>
+        <h3>Assess</h3>
+        <p>Two to four weeks. We sit with you in the room, audit the marketing, the partnerships, the brand — and bring back what we see, plainly.</p>
+      </div>
+      <div class="step reveal d2">
+        <span class="n">ii.</span>
+        <h3>Strategise</h3>
+        <p>A working plan, set on the calendar of your year. Channels, partners, source markets, moments. Built around the room, not the rate card.</p>
+      </div>
+      <div class="step reveal d3">
+        <span class="n">iii.</span>
+        <h3>Execute</h3>
+        <p>We stay. Campaigns, contracts, activations, events. Monthly readouts you can read on the train — not decks you'll never open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Founder / About ── -->
+<section class="founder" id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-portrait reveal">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Portrait of Justin Ong — Founder" loading="lazy" />
+      </div>
+      <div class="founder-text reveal d2">
+        <div class="eyebrow sec-eyebrow">06 · The Founder</div>
+        <h2>A serial host,<br><em>by trade and by nature</em><span class="stop">.</span></h2>
+        <hr class="rule" />
+        <p class="bio">
+          <strong style="font-style:normal;color:var(--ink);font-weight:500">Justin Ong</strong> is the founder of The Happiness Collective. He has spent fifteen years building partnerships across Asia-Pacific's travel ecosystem — from luxury hospitality in Las Vegas and Shanghai, to experience commerce at Klook, to a seat on the board of the Pacific Asia Travel Association.
+        </p>
+        <p class="bio" style="margin-top:20px">
+          He reads rooms for a living. He thinks the best marketing in hospitality still happens between two people, in a lobby, after the bags are up.
+        </p>
+
+        <div class="founder-stats">
+          <div><span class="n">15+</span><span class="l">Years across<br>APAC travel</span></div>
+          <div><span class="n">4</span><span class="l">Cities lived<br>&amp; worked</span></div>
+          <div><span class="n">'26–'28</span><span class="l">PATA Board<br>member-elect</span></div>
+        </div>
+
+        <div class="founder-creds">
+          <span>Klook · Strategic Partnerships</span>
+          <span>PATA · Board 2026–2028</span>
+          <span>HBX Group · MarketHub Asia</span>
+          <span>UNLV · Hotel Administration</span>
+          <span>Singapore Hotel Association Scholar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="eyebrow reveal" style="color:rgba(241,233,218,.85);margin-bottom:28px">07 · Begin a conversation</div>
+        <h2 class="reveal d2">Let's make<br>a place <em>loved</em><span style="color:var(--ink)">.</span></h2>
+        <p class="lead reveal d3">
+          A new hotel, a reopening, a destination finding its second act. If you'd like to talk, we'd like to listen.
+        </p>
+
+        <div class="contact-alts reveal d4">
+          <a href="mailto:justin@thehappinesscollective.io" class="contact-alt">
+            <span class="contact-alt-lbl">Email</span>
+            <span class="contact-alt-val">justin@thehappinesscollective.io</span>
+          </a>
+          <a href="https://calendly.com/justin-thehappinesscollective/intro" target="_blank" rel="noopener" class="contact-alt">
+            <span class="contact-alt-lbl">Or book a 30-min introduction</span>
+            <span class="contact-alt-val">A short call, no deck, no obligation →</span>
+          </a>
+          <a href="https://sg.linkedin.com/in/justinoyl" target="_blank" rel="noopener" class="contact-alt">
+            <span class="contact-alt-lbl">Find Justin on</span>
+            <span class="contact-alt-val">LinkedIn →</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal d2">
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" id="contactForm" novalidate>
+          <div class="form-eyebrow">Tell us about your room.</div>
+
+          <div class="form-row">
+            <label for="cf-name">Your name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" />
+          </div>
+
+          <div class="form-row">
+            <label for="cf-email">Your email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" />
+          </div>
+
+          <div class="form-row">
+            <label for="cf-org">Organisation <span class="optional">— optional</span></label>
+            <input id="cf-org" name="organisation" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="form-row">
+            <label for="cf-kind">What's the room?</label>
+            <select id="cf-kind" name="enquiry_type">
+              <option value="">Choose one —</option>
+              <option>A new hotel or property</option>
+              <option>A reopening or refresh</option>
+              <option>A destination / DMO</option>
+              <option>A distribution or OTA puzzle</option>
+              <option>A trade event or programme</option>
+              <option>Something else, entirely</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="cf-msg">A few lines on what you're working on</label>
+            <textarea id="cf-msg" name="message" rows="4" required placeholder="The room, the city, the timing, the question."></textarea>
+          </div>
+
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true" />
+
+          <button type="submit" class="btn btn-primary form-submit">
+            <span class="form-submit-default">Send a note <span class="arrow">→</span></span>
+            <span class="form-submit-sending" hidden>Sending…</span>
+          </button>
+
+          <p class="form-foot">
+            We read every note ourselves. You'll hear back within two working days.
+          </p>
+          <p class="form-thanks" id="formThanks" hidden>
+            Thank you — your note is in. We'll be in touch within two working days.
+          </p>
+          <p class="form-error" id="formError" hidden>
+            Something went wrong. Please <a href="mailto:justin@thehappinesscollective.io">email us directly</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">the&nbsp;<em>happiness</em>&nbsp;collective<span class="stop">.</span></div>
+        <div class="foot-tag">Lifestyle of the less ordinary — for the hotels &amp; destinations of Asia &amp; the Pacific.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#practice">Brand &amp; positioning</a></li>
+          <li><a href="#practice">Go-to-market</a></li>
+          <li><a href="#practice">Partnerships &amp; OTA</a></li>
+          <li><a href="#practice">Events &amp; trade</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>House</h4>
+        <ul>
+          <li><a href="#founder">About</a></li>
+          <li><a href="projects.html">Selected work</a></li>
+          <li><a href="#approach">Our approach</a></li>
+          <li><a href="#contact">Begin a conversation</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Find us</h4>
+        <ul>
+          <li><a href="mailto:justin@thehappinesscollective.io">justin@thehappinesscollective.io</a></li>
+          <li><a href="https://sg.linkedin.com/in/justinoyl" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li>Singapore</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© MMXXVI · The Happiness Collective Pte Ltd <span class="dot"></span> Singapore</div>
+      <div>悦 · yuè · joy, delight, to please</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Mobile nav
+  const burger = document.getElementById('navBurger');
+  const links = document.getElementById('navLinks');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Nav shadow on scroll
+  const onScroll = () => {
+    if (window.scrollY > 8) {
+      nav.style.borderBottomColor = 'rgba(26,24,22,.18)';
+      nav.style.background = 'color-mix(in oklab, var(--bone) 92%, transparent)';
+    } else {
+      nav.style.borderBottomColor = 'transparent';
+      nav.style.background = 'color-mix(in oklab, var(--bone) 78%, transparent)';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Contact form — Formspree-compatible async submit with graceful fallback
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const submit = form.querySelector('.form-submit');
+    const dflt = form.querySelector('.form-submit-default');
+    const sending = form.querySelector('.form-submit-sending');
+    const foot = form.querySelector('.form-foot');
+    const thanks = document.getElementById('formThanks');
+    const errBox = document.getElementById('formError');
+
+    form.addEventListener('submit', async (e) => {
+      // If the action still has the placeholder, let the browser handle it (mailto fallback note)
+      if (form.action.includes('your-form-id')) return; // Will POST and 404, but user will see fallback in dev
+      e.preventDefault();
+      errBox.hidden = true; thanks.hidden = true;
+      submit.disabled = true; dflt.hidden = true; sending.hidden = false;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (res.ok) {
+          form.reset();
+          form.querySelectorAll('.form-row, .form-eyebrow, .form-submit').forEach(el => el.style.display='none');
+          foot.style.display='none';
+          thanks.hidden = false;
+        } else {
+          throw new Error('submit failed');
+        }
+      } catch (err) {
+        errBox.hidden = false;
+      } finally {
+        submit.disabled = false; dflt.hidden = false; sending.hidden = true;
+      }
+    });
+  }
+</script>
+
+<!-- ─── Structured data ─── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.thehappinesscollective.io/#org",
+      "name": "The Happiness Collective",
+      "alternateName": "THC",
+      "url": "https://www.thehappinesscollective.io/",
+      "description": "A Singapore marketing house for hotels, destinations and hospitality brands of Asia and the Pacific.",
+      "slogan": "Lifestyle of the less ordinary.",
+      "areaServed": [
+        { "@type": "Place", "name": "Asia-Pacific" },
+        { "@type": "Country", "name": "Singapore" },
+        { "@type": "Country", "name": "Thailand" },
+        { "@type": "Country", "name": "Japan" },
+        { "@type": "Country", "name": "Indonesia" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "SG",
+        "addressLocality": "Singapore"
+      },
+      "founder": { "@id": "https://www.thehappinesscollective.io/#founder" },
+      "knowsAbout": [
+        "Hospitality marketing",
+        "Destination marketing",
+        "Travel trade partnerships",
+        "OTA strategy",
+        "Asia-Pacific tourism"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer enquiries",
+        "email": "justin@thehappinesscollective.io",
+        "areaServed": "Asia-Pacific"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.thehappinesscollective.io/#founder",
+      "name": "Justin Ong",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://www.thehappinesscollective.io/#org" },
+      "sameAs": ["https://sg.linkedin.com/in/justinoyl"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Nevada, Las Vegas — Hotel Administration"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Pacific Asia Travel Association (PATA) — Board Member 2026–2028"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://www.thehappinesscollective.io/",
+      "name": "The Happiness Collective",
+      "inLanguage": "en-SG"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

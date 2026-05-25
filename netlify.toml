@@ -1,0 +1,34 @@
+# Netlify configuration for The Happiness Collective
+# Drag this whole Website/ folder into Netlify, or connect a Git repo —
+# this file does the rest.
+
+[build]
+  publish = "."
+
+# Pretty URLs — /projects instead of /projects.html
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
+  status = 200
+
+# Trailing-slash cleanup
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# Security headers — sensible defaults for a static brochure site
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Long-cache for assets (when you add them under /assets/)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
