@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>The Happiness Collective — A marketing house for hotels, destinations & hospitality brands of Asia & the Pacific.</title>
+<title>The Happiness Collective: Marketing, consultancy & market research for hotels, destinations & hospitality brands across Asia and the Middle East.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="description" content="The Happiness Collective is a Singapore marketing house for hotels, destinations and hospitality brands of Asia and the Pacific. Brand, go-to-market, partnerships, events." />
+<meta name="description" content="The Happiness Collective is a Singapore marketing and strategy consultancy for hotels, destinations and hospitality brands across Asia-Pacific and the Middle East. Brand, go-to-market, partnerships and market research. Your team in-market, on retainer, for a fraction of an in-market hire." />
 <meta name="theme-color" content="#1A1816" />
-<meta name="author" content="Justin Ong" />
+<meta name="author" content="Justin" />
 <link rel="canonical" href="https://www.thehappinesscollective.io/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Happiness Collective" />
-<meta property="og:title" content="The Happiness Collective — Joyful luxury, in Asia's voice." />
-<meta property="og:description" content="A small Singapore house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific." />
+<meta property="og:title" content="The Happiness Collective: Joyful luxury, in Asia's voice." />
+<meta property="og:description" content="A Singapore marketing and strategy consultancy for the hotels, destinations and hospitality brands of Asia, the Pacific &amp; the Middle East. Your team in-market, on retainer." />
 <meta property="og:url" content="https://www.thehappinesscollective.io/" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&h=630&q=80" />
 <meta property="og:locale" content="en_SG" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Happiness Collective — Joyful luxury, in Asia's voice." />
-<meta name="twitter:description" content="A small Singapore house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific." />
+<meta name="twitter:title" content="The Happiness Collective: Joyful luxury, in Asia's voice." />
+<meta name="twitter:description" content="A Singapore marketing and strategy consultancy for the hotels, destinations and hospitality brands of Asia, the Pacific &amp; the Middle East. Your team in-market, on retainer." />
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&h=630&q=80" />
 
 <!-- Apple / mobile -->
@@ -38,7 +38,7 @@
 
 <style>
   :root{
-    /* palette — from the brand book */
+    /* palette: from the brand book */
     --bone:#F1E9DA;
     --bone-2:#E8DECB;
     --paper:#F8F2E6;
@@ -50,13 +50,13 @@
     --rule:rgba(26,24,22,.18);
     --rule-light:rgba(241,233,218,.22);
 
-    /* fluid type — Apple-style large-display posture */
+    /* fluid type: Apple-style large-display posture */
     --t-hero: clamp(56px, 11vw, 168px);
     --t-display: clamp(40px, 7vw, 108px);
     --t-h1: clamp(34px, 5vw, 72px);
     --t-h2: clamp(26px, 3.4vw, 48px);
     --t-lead: clamp(18px, 1.6vw, 24px);
-    --t-body: clamp(15px, 1.05vw, 17px);
+    --t-body: clamp(16px, 1.05vw, 17px);
     --t-cap: 12px;
 
     /* layout */
@@ -82,7 +82,7 @@
   img{display:block;max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
 
-  /* Focus-visible — keyboard users get a persimmon outline, mouse users don't */
+  /* Focus-visible: keyboard users get a persimmon outline, mouse users don't */
   :focus{outline:none}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
   .btn:focus-visible{outline-offset:5px}
@@ -112,7 +112,7 @@
     text-transform:uppercase;
   }
   .stop{color:var(--accent)}     /* the persimmon period */
-  .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
+  .container{max-width:var(--max-w);margin:0 auto;padding-left:max(var(--pad-x),env(safe-area-inset-left,0px));padding-right:max(var(--pad-x),env(safe-area-inset-right,0px))}
   .rule{height:1px;background:currentColor;opacity:.18;border:0}
 
   /* ─── Nav ─── Apple-style: thin, sticky, frosted ─── */
@@ -127,7 +127,8 @@
   }
   .nav-inner{
     max-width:var(--max-w);margin:0 auto;height:100%;
-    padding:0 var(--pad-x);
+    padding-left:max(var(--pad-x),env(safe-area-inset-left,0px));
+    padding-right:max(var(--pad-x),env(safe-area-inset-right,0px));
     display:flex;align-items:center;justify-content:space-between;
     font-size:13px;letter-spacing:.01em;
   }
@@ -148,7 +149,7 @@
     border-bottom:1px solid var(--accent);
     padding-bottom:2px;
   }
-  .nav-burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)}
+  .nav-burger{display:none;background:none;border:0;cursor:pointer;padding:11px;margin-right:-11px;color:var(--ink);touch-action:manipulation}
   .nav-burger span{display:block;width:22px;height:1.5px;background:currentColor;margin:5px 0;transition:transform .25s ease,opacity .2s ease}
   .nav.open .nav-burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
   .nav.open .nav-burger span:nth-child(2){opacity:0}
@@ -209,7 +210,7 @@
   }
   @keyframes hint{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 
-  /* ─── Marquee strip — places we work ─── */
+  /* ─── Marquee strip: places we work ─── */
   .strip{
     background:var(--ink);color:var(--bone);
     padding:20px 0;overflow:hidden;border-top:1px solid var(--ink-2);border-bottom:1px solid var(--ink-2);
@@ -344,7 +345,7 @@
     font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;
   }
 
-  /* ─── Hero strip — full-bleed image with text overlay ─── */
+  /* ─── Hero strip: full-bleed image with text overlay ─── */
   .vista{
     position:relative;min-height:80svh;
     background:var(--ink) center/cover no-repeat;
@@ -437,6 +438,46 @@
   .approach .step p{
     font-size:15px;line-height:1.6;color:rgba(241,233,218,.72);max-width:32ch;
   }
+
+  /* ─── Who we're for ─── */
+  .who-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-top:56px;
+  }
+  .who-card{background:var(--bone);padding:clamp(28px,2.6vw,40px) clamp(22px,2vw,32px);display:flex;flex-direction:column;gap:14px;transition:background .3s ease}
+  .who-card:hover{background:color-mix(in oklab, var(--accent) 4%, var(--bone))}
+  .who-card .k{font-family:'Cormorant Garamond',serif;color:var(--accent);font-size:32px;font-weight:300;line-height:1}
+  .who-card h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(22px,2vw,28px);line-height:1.1}
+  .who-card p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
+  .who-card .for{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+  /* ─── Engagement / Why a retained partner ─── */
+  .engage{background:var(--paper)}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,28px);margin-top:56px}
+  .compare-col{
+    background:var(--bone);border:1px solid var(--rule);border-radius:10px;
+    padding:clamp(28px,3vw,42px);display:flex;flex-direction:column;
+  }
+  .compare-col.us{border-color:var(--accent);box-shadow:0 28px 64px -38px rgba(217,84,43,.5);position:relative}
+  .compare-col .badge{
+    position:absolute;top:0;right:clamp(20px,3vw,32px);transform:translateY(-50%);
+    background:var(--accent);color:var(--bone);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+    padding:7px 13px;border-radius:999px;
+  }
+  .compare-col .ch{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,2.2vw,32px);line-height:1.08;margin-bottom:6px}
+  .compare-col.us .ch em{font-style:italic;color:var(--accent)}
+  .compare-col .csub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px}
+  .compare-list{list-style:none;display:flex;flex-direction:column}
+  .compare-list li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--rule);font-size:15px;line-height:1.55;color:var(--ink)}
+  .compare-col.them .compare-list li{color:var(--ink-soft)}
+  .compare-list .mk{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:8px}
+  .compare-col.us .mk{background:var(--accent)}
+  .compare-col.them .mk{background:transparent;border:1px solid var(--rule)}
+  .engage-foot{
+    margin-top:40px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:var(--t-lead);line-height:1.45;color:var(--ink-soft);max-width:60ch;
+  }
+  .engage-foot em{color:var(--accent);font-style:italic}
 
   /* ─── Contact / CTA ─── */
   .cta{
@@ -603,6 +644,8 @@
     .foot-top{grid-template-columns:1fr 1fr;gap:36px}
     .approach-grid{grid-template-columns:1fr;gap:32px}
     .contact-grid{grid-template-columns:1fr;gap:48px}
+    .who-grid{grid-template-columns:1fr}
+    .compare{grid-template-columns:1fr}
   }
   @media (max-width: 640px){
     .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:24px;border-top:1px solid var(--rule)}
@@ -617,6 +660,17 @@
     .hero{min-height:88svh}
     .cta-actions{flex-direction:column;align-items:flex-start}
     .btn{width:100%;justify-content:center}
+    /* tap targets ≥44px */
+    .nav-links a{display:block;width:100%;padding:11px 0}
+    .foot-col a{display:inline-block;padding:9px 0}
+    .foot-col ul{gap:2px}
+    /* readability + breathing room on small screens */
+    .svc p,.who-card p{font-size:15px}
+    .sec{padding:clamp(56px,9vh,160px) 0}
+    .feature-text .meta{gap:18px}
+    .feature-text .meta .num{font-size:40px}
+    .contact-alt-val{font-size:18px;overflow-wrap:anywhere}
+    .foot-brand{font-size:28px}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -652,13 +706,13 @@
 <main id="main">
 <section class="hero" id="top">
   <div class="container">
-    <div class="hero-eyebrow eyebrow reveal">A Marketing &amp; Strategy House · Singapore</div>
+    <div class="hero-eyebrow eyebrow reveal">Marketing · Strategy · Market Research · Singapore</div>
     <h1 class="reveal d2">
       Joyful luxury,<br>
       in <em>Asia's</em> voice<span class="stop">.</span>
     </h1>
     <p class="hero-sub reveal d3">
-      A small house of marketers, strategists and storytellers for the hotels, destinations and hospitality brands of Asia &amp; the Pacific. We trade in attention, in feeling, and in the quiet craft of making places loved.
+      A Singapore marketing and strategy consultancy for the hotels, destinations and hospitality brands of Asia, the Pacific and the Middle East. We become your team in the markets you're selling to, with the local knowledge of a regional hire, at a fraction of the cost.
     </p>
     <div class="hero-meta reveal d4">
       <div class="seal">悦</div>
@@ -671,37 +725,45 @@
   <div class="scroll-hint">Scroll</div>
 </section>
 
-<!-- ── Marquee strip — markets ── -->
+<!-- ── Marquee strip: markets ── -->
 <div class="strip" aria-hidden="true">
   <div class="strip-track">
     <span>
       Singapore <span class="dot"></span>
       Bangkok <span class="dot"></span>
       Tokyo <span class="dot"></span>
+      Dubai <span class="dot"></span>
       Seoul <span class="dot"></span>
       Hong Kong <span class="dot"></span>
       Bali <span class="dot"></span>
+      Abu Dhabi <span class="dot"></span>
       Hanoi <span class="dot"></span>
       Kuala Lumpur <span class="dot"></span>
+      Doha <span class="dot"></span>
       Shanghai <span class="dot"></span>
-      Manila <span class="dot"></span>
+      Riyadh <span class="dot"></span>
       Phuket <span class="dot"></span>
       Hokkaido <span class="dot"></span>
+      Jeddah <span class="dot"></span>
       Sydney <span class="dot"></span>
     </span>
     <span aria-hidden="true">
       Singapore <span class="dot"></span>
       Bangkok <span class="dot"></span>
       Tokyo <span class="dot"></span>
+      Dubai <span class="dot"></span>
       Seoul <span class="dot"></span>
       Hong Kong <span class="dot"></span>
       Bali <span class="dot"></span>
+      Abu Dhabi <span class="dot"></span>
       Hanoi <span class="dot"></span>
       Kuala Lumpur <span class="dot"></span>
+      Doha <span class="dot"></span>
       Shanghai <span class="dot"></span>
-      Manila <span class="dot"></span>
+      Riyadh <span class="dot"></span>
       Phuket <span class="dot"></span>
       Hokkaido <span class="dot"></span>
+      Jeddah <span class="dot"></span>
       Sydney <span class="dot"></span>
     </span>
   </div>
@@ -714,13 +776,49 @@
     <div>
       <p class="reveal d2">
         We believe luxury, today,<br>
-        is <em>the gift of time</em> ——<br>
+        is <em>the gift of time</em>,<br>
         and the rare pleasure of<br>
         being looked after, well<span class="stop">.</span>
       </p>
       <div class="sig reveal d3">
         <span class="sig-rule"></span>
-        <span class="small">— Our manifesto, in one line —</span>
+        <span class="small">Our manifesto, in one line</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Who we're for ── -->
+<section class="sec" id="who" style="background:var(--bone)">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <div class="eyebrow sec-eyebrow reveal">01 · Who We're For</div>
+        <h2 class="sec-title reveal d2">Built for the people<br>who <em>fill the rooms</em><span class="stop">.</span></h2>
+      </div>
+      <p class="sec-lead reveal d3" style="max-width:42ch;margin-top:0">
+        If you sell a place, whether a hotel, a country, or an experience, to travellers in Asia and the Middle East, this is the work we do.
+      </p>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <span class="k">i.</span>
+        <h3>Hotels &amp; resorts</h3>
+        <p>New builds, reopenings and independents who need a presence in their source markets, without opening an office in each one.</p>
+        <div class="for">Hotels · Resorts · Groups</div>
+      </div>
+      <div class="who-card reveal d2">
+        <span class="k">ii.</span>
+        <h3>Tourism boards &amp; DMOs</h3>
+        <p>Destinations selling into Asia and the Gulf who want honest counsel, real local knowledge, and a pipeline that moves visitors.</p>
+        <div class="for">DMOs · NTOs · Regions</div>
+      </div>
+      <div class="who-card reveal d3">
+        <span class="k">iii.</span>
+        <h3>Travel &amp; hospitality brands</h3>
+        <p>Operators, platforms and luxury houses entering a region they don't yet have the network, or the nuance, for it.</p>
+        <div class="for">Operators · Platforms · Brands</div>
       </div>
     </div>
   </div>
@@ -742,30 +840,30 @@
     <div class="services-grid">
       <div class="svc reveal">
         <span class="n">01.</span>
-        <h3>Brand &amp; positioning</h3>
-        <p>For new hotels, refreshes, and DMOs finding their voice — the architecture beneath the welcome.</p>
+        <h3>Market research &amp; entry</h3>
+        <p>Before you spend in a market, know it. Demand, source markets, competitors and the trade, read plainly, in language you can act on.</p>
       </div>
       <div class="svc reveal d2">
         <span class="n">02.</span>
-        <h3>Go-to-market in APAC</h3>
-        <p>Trade partners, source markets, on-the-ground activations from Singapore to Seoul to Hokkaido.</p>
+        <h3>Brand &amp; positioning</h3>
+        <p>For new hotels, reopenings and destinations finding their voice: the architecture beneath the welcome.</p>
       </div>
       <div class="svc reveal d3">
         <span class="n">03.</span>
-        <h3>Partnerships &amp; OTA strategy</h3>
-        <p>B2B distribution, bedbank &amp; OTA contracts that perform — built on relationships, measured in nights.</p>
+        <h3>Go-to-market &amp; representation</h3>
+        <p>We become your team in-market: trade partners, OTAs, source markets and the rooms that matter, from Singapore to Seoul to Dubai.</p>
       </div>
       <div class="svc reveal d4">
         <span class="n">04.</span>
-        <h3>Events &amp; trade</h3>
-        <p>ITB, ATM, PATA, WTM — turning rooms full of strangers into rooms full of partners.</p>
+        <h3>Partnerships &amp; distribution</h3>
+        <p>B2B distribution and OTA strategy that performs, built on relationships, measured in nights, not impressions.</p>
       </div>
     </div>
 
     <div class="services-foot reveal">
       <div class="seal">悦</div>
       <div class="text">
-        <div class="a">05. The fifth thing — <span class="accent">good hospitality, to one another.</span></div>
+        <div class="a">05. The fifth thing: <span class="accent">good hospitality, to one another.</span></div>
         <div class="b">Our house rule. It shows up in everything we make.</div>
       </div>
     </div>
@@ -783,10 +881,10 @@
       <div class="feature-text reveal d2">
         <div class="eyebrow sec-eyebrow">Pillar I</div>
         <h2>Quiet luxury<span class="stop">.</span></h2>
-        <p>The kind that doesn't announce itself. The 12-room ryokan on the Noto coast. The reopening that doesn't shout, but is fully booked by the second weekend.</p>
+        <p>The kind that doesn't announce itself. The 12-room ryokan on the Noto coast. The desert lodge beyond AlUla you book a year ahead. The reopening that doesn't shout, but is full by the second weekend.</p>
         <div class="meta">
-          <div><span class="num">15+</span><span class="lbl">Years in luxury<br>&amp; lifestyle</span></div>
-          <div><span class="num">13</span><span class="lbl">Markets &amp;<br>alphabets</span></div>
+          <div><span class="num">15+</span><span class="lbl">Years in luxury<br>&amp; hospitality</span></div>
+          <div><span class="num">20+</span><span class="lbl">Markets known,<br>two regions</span></div>
           <div><span class="num">∞</span><span class="lbl">Hotels visited<br>&amp; remembered</span></div>
         </div>
       </div>
@@ -794,23 +892,23 @@
   </div>
 </section>
 
-<!-- ── Vista — full-bleed APAC ── -->
+<!-- ── Vista: full-bleed APAC ── -->
 <section class="vista" style="background-image:url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=2400&q=80')" aria-label="Asia-Pacific landscape">
   <div class="container">
-    <div class="eyebrow reveal" style="color:var(--accent);margin-bottom:24px;">A Region, Not a Market</div>
-    <h2 class="reveal d2">Thirteen markets.<br>As many <em>alphabets</em><span class="stop">.</span></h2>
-    <p class="reveal d3">We don't apply global playbooks to Asian destinations. We start with the room, the route, the regulator — and write a plan that could only have been written for you.</p>
+    <div class="eyebrow reveal" style="color:var(--accent);margin-bottom:24px;">Two Regions, Not One Playbook</div>
+    <h2 class="reveal d2">Twenty markets.<br>As many <em>alphabets</em><span class="stop">.</span></h2>
+    <p class="reveal d3">We don't run global playbooks across Asian and Gulf destinations. We start with the room, the route, the regulator, then write a plan that could only have been written for you.</p>
   </div>
 </section>
 
 <!-- ── Feature: Warm intelligence (flipped) ── -->
-<section class="feature paper" style="background:var(--paper)">
+<section class="feature">
   <div class="container">
     <div class="feature-grid">
       <div class="feature-text reveal">
         <div class="eyebrow sec-eyebrow">Pillar II</div>
         <h2>Warm intelligence<span class="stop">.</span></h2>
-        <p>Data with a pulse. We measure what matters — nights, source markets, channel mix — then we sit with the GM, the DMO, the brand director, and we figure out what to do about it.</p>
+        <p>Data with a pulse. We measure what matters: nights, source markets, channel mix. Then we sit with the GM, the DMO, the brand director, and we figure out what to do about it.</p>
         <div class="meta">
           <div><span class="num">3-5×</span><span class="lbl">Average<br>ROAS</span></div>
           <div><span class="num">20%</span><span class="lbl">Visitor growth<br>target</span></div>
@@ -825,7 +923,49 @@
   </div>
 </section>
 
-<!-- ── Projects preview ── -->
+<!-- ── Engagement / Why a retained partner ── -->
+<section class="sec engage" id="engagement">
+  <div class="container">
+    <div class="sec-eyebrow eyebrow reveal">03 · The Engagement</div>
+    <h2 class="sec-title reveal d2">A team in-market,<br>without the <em>headcount</em><span class="stop">.</span></h2>
+    <p class="sec-lead reveal d3" style="max-width:58ch">
+      Most hotels and destinations don't need another agency, or a full-time hire in a market they're still learning. They need someone who already knows the room, on a retainer they can size to the year ahead.
+    </p>
+
+    <div class="compare">
+      <div class="compare-col them reveal">
+        <div class="ch">A full-time in-market hire</div>
+        <div class="csub">The usual way</div>
+        <ul class="compare-list">
+          <li><span class="mk" aria-hidden="true"></span>One salary, plus benefits, visa, desk and ramp-up.</li>
+          <li><span class="mk" aria-hidden="true"></span>Six to twelve months to build a local network.</li>
+          <li><span class="mk" aria-hidden="true"></span>One person's relationships, and one person's blind spots.</li>
+          <li><span class="mk" aria-hidden="true"></span>A fixed cost, whether the calendar is busy or quiet.</li>
+          <li><span class="mk" aria-hidden="true"></span>Coverage of one market, on one timezone.</li>
+        </ul>
+      </div>
+
+      <div class="compare-col us reveal d2">
+        <div class="badge">On retainer</div>
+        <div class="ch">A <em>retained partner</em></div>
+        <div class="csub">The Happiness Collective</div>
+        <ul class="compare-list">
+          <li><span class="mk" aria-hidden="true"></span>A fraction of a full-time salary. No overheads, no headcount.</li>
+          <li><span class="mk" aria-hidden="true"></span>A network across Asia and the Gulf, from day one.</li>
+          <li><span class="mk" aria-hidden="true"></span>Fifteen years of trade relationships, already warm.</li>
+          <li><span class="mk" aria-hidden="true"></span>A retainer you scale to the season, not the org chart.</li>
+          <li><span class="mk" aria-hidden="true"></span>Two regions, many markets, one point of contact.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="engage-foot reveal">
+      No vast retainers. No twelve-month ramp. You keep the upside. <em>We keep the relationships warm</em>.
+    </p>
+  </div>
+</section>
+
+<!-- ── Selected work preview ── -->
 <section class="sec" id="work" style="background:var(--bone)">
   <div class="container">
     <div class="projects-head">
@@ -839,46 +979,46 @@
     </div>
 
     <div class="projects-grid">
-      <a class="proj reveal" href="projects.html#klook">
+      <a class="proj reveal" href="work-hsbc.html">
         <div class="proj-media">
-          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1400&q=80" alt="Tokyo neon and crossing — experience commerce in motion" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pudong_Shanghai_November_2017_panorama.jpg?width=1100" alt="The Shanghai skyline at dusk, across the Huangpu river" loading="lazy" />
         </div>
         <div class="proj-body">
-          <div class="proj-tag">Klook · Experience Commerce</div>
-          <h3 class="proj-title">Distribution at the speed of attention.</h3>
-          <p class="proj-meta">Strategic partnerships across Asia-Pacific. Scaling experiences, attractions, and rail for the region's largest experience marketplace.</p>
-          <div class="proj-link">Read the room</div>
+          <div class="proj-tag">HSBC · Events &amp; experience</div>
+          <h3 class="proj-title">Three cities, one room<span class="stop">.</span></h3>
+          <p class="proj-meta">HSBC's first client event since the pandemic began: a three-city hybrid programme for high-net-worth clients across mainland China.</p>
+          <div class="proj-link">Read the case</div>
         </div>
       </a>
 
-      <a class="proj reveal d2" href="projects.html#pata">
+      <a class="proj reveal d2" href="work-jnto.html">
         <div class="proj-media">
-          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80" alt="A long view across an Asia-Pacific city skyline at dusk" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg?width=1100" alt="A path of vermilion torii gates at Fushimi Inari, Kyoto" loading="lazy" />
         </div>
         <div class="proj-body">
-          <div class="proj-tag">PATA · 2026–2028</div>
-          <h3 class="proj-title">A seat at the regional table.</h3>
-          <p class="proj-meta">Elected to the Board of the Pacific Asia Travel Association. Keynote at the 75th PATA Annual Summit, South Korea.</p>
-          <div class="proj-link">Read the room</div>
+          <div class="proj-tag">JNTO · Destination marketing</div>
+          <h3 class="proj-title">Okaeri<span class="stop">.</span> Welcome back.</h3>
+          <p class="proj-meta">A consumer campaign for Japan's reopening, rebuilding arrivals and spreading them beyond Tokyo, Kyoto and Osaka.</p>
+          <div class="proj-link">Read the case</div>
         </div>
       </a>
 
-      <a class="proj reveal d3" href="projects.html#hbx">
+      <a class="proj reveal d3" href="work-saudi.html">
         <div class="proj-media">
-          <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1400&q=80" alt="A grand hotel facade in warm evening light" loading="lazy" />
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Riyadh_Skyline.jpg?width=1100" alt="The Riyadh skyline, with the Kingdom Centre tower" loading="lazy" />
         </div>
         <div class="proj-body">
-          <div class="proj-tag">HBX Group · MarketHub Asia</div>
-          <h3 class="proj-title">The plumbing of hospitality.</h3>
-          <p class="proj-meta">Bedbank &amp; B2B distribution across the region. Convening the trade through MarketHub Asia — partnerships built for nights, not impressions.</p>
-          <div class="proj-link">Read the room</div>
+          <div class="proj-tag">Saudi Tourism · Go-to-market &amp; trade</div>
+          <h3 class="proj-title">Selling a country before it was built<span class="stop">.</span></h3>
+          <p class="proj-meta">A global B2B programme building trade demand for Saudi's Vision 2030 destinations, ahead of the supply.</p>
+          <div class="proj-link">Read the case</div>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ── Approach — 3-step on dark ── -->
+<!-- ── Approach: 3-step on dark ── -->
 <section class="sec dark approach" id="approach">
   <div class="container">
     <div class="eyebrow sec-eyebrow reveal" style="color:var(--accent)">05 · The Approach</div>
@@ -891,7 +1031,7 @@
       <div class="step reveal">
         <span class="n">i.</span>
         <h3>Assess</h3>
-        <p>Two to four weeks. We sit with you in the room, audit the marketing, the partnerships, the brand — and bring back what we see, plainly.</p>
+        <p>Two to four weeks. We sit with you in the room, audit the marketing, the partnerships, the brand, then bring back what we see, plainly.</p>
       </div>
       <div class="step reveal d2">
         <span class="n">ii.</span>
@@ -901,7 +1041,7 @@
       <div class="step reveal d3">
         <span class="n">iii.</span>
         <h3>Execute</h3>
-        <p>We stay. Campaigns, contracts, activations, events. Monthly readouts you can read on the train — not decks you'll never open.</p>
+        <p>We stay. Campaigns, contracts, activations, events. Monthly readouts you can read on the train, not decks you'll never open.</p>
       </div>
     </div>
   </div>
@@ -912,29 +1052,30 @@
   <div class="container">
     <div class="founder-grid">
       <div class="founder-portrait reveal">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Portrait of Justin Ong — Founder" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Justin, Founder of The Happiness Collective" loading="lazy" />
       </div>
       <div class="founder-text reveal d2">
         <div class="eyebrow sec-eyebrow">06 · The Founder</div>
         <h2>A serial host,<br><em>by trade and by nature</em><span class="stop">.</span></h2>
         <hr class="rule" />
         <p class="bio">
-          <strong style="font-style:normal;color:var(--ink);font-weight:500">Justin Ong</strong> is the founder of The Happiness Collective. He has spent fifteen years building partnerships across Asia-Pacific's travel ecosystem — from luxury hospitality in Las Vegas and Shanghai, to experience commerce at Klook, to a seat on the board of the Pacific Asia Travel Association.
+          <strong style="font-style:normal;color:var(--ink);font-weight:500">Justin</strong> is the founder of The Happiness Collective. He has spent fifteen years building partnerships across the travel ecosystems of Asia, the Pacific and the Middle East: from luxury hospitality in Las Vegas and Shanghai, to regional partnerships for a global B2B travel-distribution platform, to experience commerce at Klook, to a seat on the board of the Pacific Asia Travel Association.
         </p>
         <p class="bio" style="margin-top:20px">
           He reads rooms for a living. He thinks the best marketing in hospitality still happens between two people, in a lobby, after the bags are up.
         </p>
 
         <div class="founder-stats">
-          <div><span class="n">15+</span><span class="l">Years across<br>APAC travel</span></div>
-          <div><span class="n">4</span><span class="l">Cities lived<br>&amp; worked</span></div>
-          <div><span class="n">'26–'28</span><span class="l">PATA Board<br>member-elect</span></div>
+          <div><span class="n">15+</span><span class="l">Years in travel<br>&amp; hospitality</span></div>
+          <div><span class="n">2</span><span class="l">Regions<br>Asia &amp; the Gulf</span></div>
+          <div><span class="n">'26-'28</span><span class="l">PATA Board<br>member-elect</span></div>
         </div>
 
         <div class="founder-creds">
           <span>Klook · Strategic Partnerships</span>
-          <span>PATA · Board 2026–2028</span>
-          <span>HBX Group · MarketHub Asia</span>
+          <span>PATA · Board 2026-2028</span>
+          <span>Global B2B Travel Distribution · APAC</span>
+          <span>ATM Dubai · ITB Asia · Trade</span>
           <span>UNLV · Hotel Administration</span>
           <span>Singapore Hotel Association Scholar</span>
         </div>
@@ -955,15 +1096,15 @@
         </p>
 
         <div class="contact-alts reveal d4">
-          <a href="mailto:justin@thehappinesscollective.io" class="contact-alt">
+          <a href="mailto:hello@thehappinesscollective.io" class="contact-alt">
             <span class="contact-alt-lbl">Email</span>
-            <span class="contact-alt-val">justin@thehappinesscollective.io</span>
+            <span class="contact-alt-val">hello@thehappinesscollective.io</span>
           </a>
           <a href="https://calendly.com/justin-thehappinesscollective/intro" target="_blank" rel="noopener" class="contact-alt">
             <span class="contact-alt-lbl">Or book a 30-min introduction</span>
             <span class="contact-alt-val">A short call, no deck, no obligation →</span>
           </a>
-          <a href="https://sg.linkedin.com/in/justinoyl" target="_blank" rel="noopener" class="contact-alt">
+          <a href="https://www.linkedin.com/in/justinylo" target="_blank" rel="noopener" class="contact-alt">
             <span class="contact-alt-lbl">Find Justin on</span>
             <span class="contact-alt-val">LinkedIn →</span>
           </a>
@@ -985,17 +1126,20 @@
           </div>
 
           <div class="form-row">
-            <label for="cf-org">Organisation <span class="optional">— optional</span></label>
+            <label for="cf-org">Organisation <span class="optional">(optional)</span></label>
             <input id="cf-org" name="organisation" type="text" autocomplete="organization" />
           </div>
 
           <div class="form-row">
             <label for="cf-kind">What's the room?</label>
             <select id="cf-kind" name="enquiry_type">
-              <option value="">Choose one —</option>
+              <option value="">Choose one</option>
               <option>A new hotel or property</option>
               <option>A reopening or refresh</option>
               <option>A destination / DMO</option>
+              <option>Entering a new market in Asia or the Gulf</option>
+              <option>Market research, or a read on a region</option>
+              <option>In-market representation</option>
               <option>A distribution or OTA puzzle</option>
               <option>A trade event or programme</option>
               <option>Something else, entirely</option>
@@ -1018,10 +1162,10 @@
             We read every note ourselves. You'll hear back within two working days.
           </p>
           <p class="form-thanks" id="formThanks" hidden>
-            Thank you — your note is in. We'll be in touch within two working days.
+            Thank you, your note is in. We'll be in touch within two working days.
           </p>
           <p class="form-error" id="formError" hidden>
-            Something went wrong. Please <a href="mailto:justin@thehappinesscollective.io">email us directly</a>.
+            Something went wrong. Please <a href="mailto:hello@thehappinesscollective.io">email us directly</a>.
           </p>
         </form>
       </div>
@@ -1037,7 +1181,7 @@
     <div class="foot-top">
       <div>
         <div class="foot-brand">the&nbsp;<em>happiness</em>&nbsp;collective<span class="stop">.</span></div>
-        <div class="foot-tag">Lifestyle of the less ordinary — for the hotels &amp; destinations of Asia &amp; the Pacific.</div>
+        <div class="foot-tag">Lifestyle of the less ordinary, for the hotels &amp; destinations of the Middle East &amp; Asia-Pacific.</div>
       </div>
       <div class="foot-col">
         <h4>Practice</h4>
@@ -1060,8 +1204,8 @@
       <div class="foot-col">
         <h4>Find us</h4>
         <ul>
-          <li><a href="mailto:justin@thehappinesscollective.io">justin@thehappinesscollective.io</a></li>
-          <li><a href="https://sg.linkedin.com/in/justinoyl" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:hello@thehappinesscollective.io">hello@thehappinesscollective.io</a></li>
+          <li><a href="https://www.linkedin.com/in/justinylo" target="_blank" rel="noopener">LinkedIn</a></li>
           <li>Singapore</li>
         </ul>
       </div>
@@ -1109,7 +1253,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Contact form — Formspree-compatible async submit with graceful fallback
+  // Contact form: Formspree-compatible async submit with graceful fallback
   const form = document.getElementById('contactForm');
   if (form) {
     const submit = form.querySelector('.form-submit');
@@ -1159,14 +1303,18 @@
       "name": "The Happiness Collective",
       "alternateName": "THC",
       "url": "https://www.thehappinesscollective.io/",
-      "description": "A Singapore marketing house for hotels, destinations and hospitality brands of Asia and the Pacific.",
+      "description": "A Singapore marketing and strategy house for the hotels, destinations and hospitality brands of the Middle East and Asia-Pacific (MEAPAC): brand, go-to-market, market research and in-market representation.",
       "slogan": "Lifestyle of the less ordinary.",
       "areaServed": [
         { "@type": "Place", "name": "Asia-Pacific" },
+        { "@type": "Place", "name": "Middle East" },
         { "@type": "Country", "name": "Singapore" },
         { "@type": "Country", "name": "Thailand" },
         { "@type": "Country", "name": "Japan" },
-        { "@type": "Country", "name": "Indonesia" }
+        { "@type": "Country", "name": "Indonesia" },
+        { "@type": "Country", "name": "United Arab Emirates" },
+        { "@type": "Country", "name": "Saudi Arabia" },
+        { "@type": "Country", "name": "Qatar" }
       ],
       "address": {
         "@type": "PostalAddress",
@@ -1178,30 +1326,33 @@
         "Hospitality marketing",
         "Destination marketing",
         "Travel trade partnerships",
-        "OTA strategy",
-        "Asia-Pacific tourism"
+        "OTA and distribution strategy",
+        "Market research",
+        "Market entry and in-market representation",
+        "Asia-Pacific tourism",
+        "Middle East tourism"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer enquiries",
-        "email": "justin@thehappinesscollective.io",
-        "areaServed": "Asia-Pacific"
+        "email": "hello@thehappinesscollective.io",
+        "areaServed": ["Asia-Pacific", "Middle East"]
       }
     },
     {
       "@type": "Person",
       "@id": "https://www.thehappinesscollective.io/#founder",
-      "name": "Justin Ong",
+      "name": "Justin",
       "jobTitle": "Founder",
       "worksFor": { "@id": "https://www.thehappinesscollective.io/#org" },
-      "sameAs": ["https://sg.linkedin.com/in/justinoyl"],
+      "sameAs": ["https://www.linkedin.com/in/justinylo"],
       "alumniOf": {
         "@type": "CollegeOrUniversity",
-        "name": "University of Nevada, Las Vegas — Hotel Administration"
+        "name": "University of Nevada, Las Vegas (Hotel Administration)"
       },
       "memberOf": {
         "@type": "Organization",
-        "name": "Pacific Asia Travel Association (PATA) — Board Member 2026–2028"
+        "name": "Pacific Asia Travel Association (PATA), Board Member 2026-2028"
       }
     },
     {

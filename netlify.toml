@@ -1,14 +1,29 @@
 # Netlify configuration for The Happiness Collective
-# Drag this whole Website/ folder into Netlify, or connect a Git repo —
-# this file does the rest.
+# Drag this whole Website/ folder into Netlify, or connect a Git repo.
+# This file does the rest.
 
 [build]
   publish = "."
 
-# Pretty URLs — /projects instead of /projects.html
+# Pretty URLs, e.g. /projects instead of /projects.html
 [[redirects]]
   from = "/projects"
   to = "/projects.html"
+  status = 200
+
+[[redirects]]
+  from = "/work-hsbc"
+  to = "/work-hsbc.html"
+  status = 200
+
+[[redirects]]
+  from = "/work-jnto"
+  to = "/work-jnto.html"
+  status = 200
+
+[[redirects]]
+  from = "/work-saudi"
+  to = "/work-saudi.html"
   status = 200
 
 # Trailing-slash cleanup
@@ -17,7 +32,7 @@
   to = "/"
   status = 301
 
-# Security headers — sensible defaults for a static brochure site
+# Security headers: sensible defaults for a static brochure site
 [[headers]]
   for = "/*"
   [headers.values]
