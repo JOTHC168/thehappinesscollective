@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>The Happiness Collective: Marketing, consultancy & market research for hotels, destinations & hospitality brands across Asia and the Middle East.</title>
+<title>The Happiness Collective · Marketing & strategy for hotels, destinations & hospitality brands in Asia & the Middle East</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="description" content="The Happiness Collective is a Singapore marketing and strategy consultancy for hotels, destinations and hospitality brands across Asia-Pacific and the Middle East. Brand, go-to-market, partnerships and market research. Your team in-market, on retainer, for a fraction of an in-market hire." />
 <meta name="theme-color" content="#1A1816" />
@@ -214,6 +214,7 @@
   .strip{
     background:var(--ink);color:var(--bone);
     padding:20px 0;overflow:hidden;border-top:1px solid var(--ink-2);border-bottom:1px solid var(--ink-2);
+    contain:inline-size; /* the nowrap marquee track must never widen the mobile layout viewport */
   }
   .strip-track{
     display:flex;gap:48px;white-space:nowrap;
@@ -641,17 +642,22 @@
     .feature.flip .feature-grid{direction:ltr}
     .manifesto p{font-size:clamp(28px,6vw,48px)}
     .quote-mark{font-size:clamp(80px,16vw,120px)}
-    .foot-top{grid-template-columns:1fr 1fr;gap:36px}
+    .foot-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+    .foot-col a,.foot-tag{overflow-wrap:anywhere}
     .approach-grid{grid-template-columns:1fr;gap:32px}
     .contact-grid{grid-template-columns:1fr;gap:48px}
     .who-grid{grid-template-columns:1fr}
     .compare{grid-template-columns:1fr}
   }
-  @media (max-width: 640px){
-    .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:24px;border-top:1px solid var(--rule)}
+  @media (max-width: 960px){
+    /* burger nav from tablet down: six links no longer fit beside the wordmark */
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;height:calc(100svh - var(--nav-h));background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:8px;border-top:1px solid var(--rule);overflow-y:auto}
     .nav-links.open{display:flex}
-    .nav-links a{font-size:22px;font-family:'Cormorant Garamond',serif;font-style:italic;opacity:1}
+    .nav-links a{font-size:22px;font-family:'Cormorant Garamond',serif;font-style:italic;opacity:1;display:block;width:100%;padding:11px 0}
     .nav-burger{display:block}
+    body.nav-open{overflow:hidden}
+  }
+  @media (max-width: 640px){
     .projects-grid{grid-template-columns:1fr}
     .services-grid{grid-template-columns:1fr}
     .svc{border-right:0!important;padding-right:0!important}
@@ -661,8 +667,8 @@
     .cta-actions{flex-direction:column;align-items:flex-start}
     .btn{width:100%;justify-content:center}
     /* tap targets ≥44px */
-    .nav-links a{display:block;width:100%;padding:11px 0}
     .foot-col a{display:inline-block;padding:9px 0}
+    .foot-top{grid-template-columns:1fr;gap:28px}
     .foot-col ul{gap:2px}
     /* readability + breathing room on small screens */
     .svc p,.who-card p{font-size:15px}
@@ -694,6 +700,7 @@
       <a href="#approach">Approach</a>
       <a href="projects.html">Work</a>
       <a href="#founder">About</a>
+      <a href="portal.html">Client login</a>
       <a href="#contact" class="nav-cta">Begin a conversation</a>
     </nav>
     <button class="nav-burger" id="navBurger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
@@ -1100,8 +1107,8 @@
             <span class="contact-alt-lbl">Email</span>
             <span class="contact-alt-val">hello@thehappinesscollective.io</span>
           </a>
-          <a href="https://calendly.com/justin-thehappinesscollective/intro" target="_blank" rel="noopener" class="contact-alt">
-            <span class="contact-alt-lbl">Or book a 30-min introduction</span>
+          <a href="mailto:hello@thehappinesscollective.io?subject=An%20introduction%20call&amp;body=Hello%20Justin%2C%0A%0AWe%27d%20like%20a%20short%20introduction%20call.%20A%20few%20times%20that%20suit%20us%3A%0A%0A" class="contact-alt">
+            <span class="contact-alt-lbl">Or ask for a 30-min introduction</span>
             <span class="contact-alt-val">A short call, no deck, no obligation →</span>
           </a>
           <a href="https://www.linkedin.com/in/justinoyl" target="_blank" rel="noopener" class="contact-alt">
@@ -1112,8 +1119,13 @@
       </div>
 
       <div class="contact-right reveal d2">
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" id="contactForm" novalidate>
+        <form class="contact-form" action="https://formsubmit.co/justin@thehappinesscollective.io" method="POST" id="contactForm" novalidate>
           <div class="form-eyebrow">Tell us about your room.</div>
+
+          <input type="hidden" name="_subject" value="New enquiry · thehappinesscollective.io" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_autoresponse" value="Thank you, your note is in. We read every note ourselves, and you will hear back within two working days. Regards, Justin · The Happiness Collective" />
 
           <div class="form-row">
             <label for="cf-name">Your name</label>
@@ -1151,7 +1163,7 @@
             <textarea id="cf-msg" name="message" rows="4" required placeholder="The room, the city, the timing, the question."></textarea>
           </div>
 
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true" />
 
           <button type="submit" class="btn btn-primary form-submit">
             <span class="form-submit-default">Send a note <span class="arrow">→</span></span>
@@ -1199,6 +1211,7 @@
           <li><a href="projects.html">Selected work</a></li>
           <li><a href="#approach">Our approach</a></li>
           <li><a href="#contact">Begin a conversation</a></li>
+          <li><a href="portal.html">Client login</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1233,10 +1246,12 @@
   burger.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     nav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
     burger.setAttribute('aria-expanded', String(open));
   });
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open'); nav.classList.remove('open');
+    document.body.classList.remove('nav-open');
     burger.setAttribute('aria-expanded', 'false');
   }));
 
@@ -1264,13 +1279,13 @@
     const errBox = document.getElementById('formError');
 
     form.addEventListener('submit', async (e) => {
-      // If the action still has the placeholder, let the browser handle it (mailto fallback note)
-      if (form.action.includes('your-form-id')) return; // Will POST and 404, but user will see fallback in dev
       e.preventDefault();
+      if (!form.reportValidity()) return;
       errBox.hidden = true; thanks.hidden = true;
       submit.disabled = true; dflt.hidden = true; sending.hidden = false;
       try {
-        const res = await fetch(form.action, {
+        // FormSubmit AJAX endpoint: same address, /ajax/ path, JSON response
+        const res = await fetch('https://formsubmit.co/ajax/justin@thehappinesscollective.io', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)

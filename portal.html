@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Client entrance — The Happiness Collective</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content="The client entrance for The Happiness Collective. Files, invoices and reports, in one quiet place." />
+<meta name="theme-color" content="#1A1816" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" />
+
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%231A1816'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-style='italic' font-size='34' fill='%23F1E9DA'>thc</text><text x='80%25' y='66%25' text-anchor='middle' dominant-baseline='middle' font-family='Cormorant Garamond, serif' font-size='34' fill='%23D9542B'>.</text></svg>" />
+
+<style>
+  :root{
+    --bone:#F1E9DA; --paper:#F8F2E6; --ink:#1A1816; --ink-2:#2A2520; --ink-soft:#5B544A;
+    --accent:#D9542B; --accent-soft:rgba(217,84,43,.10);
+    --jade:#4A6E5C; --twilight:#3C4F6E; --plum:#8A3B5C; --sun:#C46A40;
+    --rule:rgba(26,24,22,.18);
+    --pad-x:clamp(20px,5vw,64px);
+    --max-w:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bone);color:var(--ink);
+    font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;font-weight:400;
+    font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+    min-height:100svh;display:flex;flex-direction:column;
+  }
+  ::selection{background:var(--accent);color:var(--bone)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  :focus{outline:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:300}
+  .stop{color:var(--accent)}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+  .container{max-width:var(--max-w);margin:0 auto;width:100%;padding:0 var(--pad-x)}
+  .hidden{display:none!important}
+
+  /* ── Top band ── */
+  .band{background:var(--ink);color:var(--bone)}
+  .band-inner{max-width:var(--max-w);margin:0 auto;padding:14px var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:19px;line-height:1;white-space:nowrap}
+  .brand em{font-style:italic;font-weight:300}
+  .band .who{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .band .who .cname{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:17px;color:rgba(241,233,218,.9)}
+  .band .lnk{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:rgba(241,233,218,.75);cursor:pointer;background:none;border:0;font-family:'Manrope',sans-serif;padding:8px 0}
+  .band .lnk:hover{color:var(--bone)}
+
+  /* ── Login ── */
+  .login-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:48px var(--pad-x)}
+  .login{width:100%;max-width:420px}
+  .login .seal{width:56px;height:56px;border-radius:6px;background:var(--ink);color:var(--bone);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-weight:700;font-size:30px;margin-bottom:26px}
+  .login h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,6vw,44px);line-height:1.02;letter-spacing:-.02em;margin-bottom:12px}
+  .login h1 em{font-style:italic}
+  .login .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:17px;color:var(--ink-soft);margin-bottom:34px;max-width:36ch}
+  .frow{margin-bottom:18px}
+  .frow label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:7px}
+  .frow input,.frow select,.frow textarea{
+    width:100%;background:transparent;border:0;border-bottom:1px solid var(--rule);
+    padding:9px 0 11px;font-family:'Manrope',sans-serif;font-size:16px;color:var(--ink);
+    border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .25s ease;
+  }
+  .frow textarea{resize:vertical;min-height:90px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.5}
+  .frow input:focus,.frow select:focus,.frow textarea:focus{border-bottom-color:var(--accent)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 24px;border-radius:999px;border:0;cursor:pointer;
+    font-family:'Manrope',sans-serif;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    background:var(--ink);color:var(--bone);transition:background .25s ease,color .25s ease;
+  }
+  .btn:hover{background:var(--accent)}
+  .btn:disabled{opacity:.55;cursor:wait}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--bone)}
+  .btn.small{padding:9px 16px;font-size:11px}
+  .login .btn{margin-top:8px;width:100%}
+  .login-msg{margin-top:16px;padding:13px 15px;font-size:13.5px;line-height:1.5;display:none}
+  .login-msg.show{display:block}
+  .login-msg.err{background:var(--accent-soft);border-left:2px solid var(--accent)}
+  .login-note{margin-top:34px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+  .login-note a{border-bottom:1px solid var(--accent)}
+
+  /* ── App shell ── */
+  .app{flex:1;padding-bottom:64px}
+  .apphead{padding:34px 0 0}
+  .apphead .eyebrow{color:var(--accent);display:flex;align-items:center;gap:12px}
+  .apphead .eyebrow::after{content:"";display:block;width:36px;height:1px;background:var(--accent)}
+  .apphead h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,5vw,46px);line-height:1.02;letter-spacing:-.02em;margin-top:10px}
+  .apphead h1 em{font-style:italic}
+  .apphead .asof{font-size:12px;color:var(--ink-soft);margin-top:8px}
+
+  .tabs{display:flex;gap:2px;border-bottom:2px solid var(--ink);margin:26px 0 24px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    font-family:'Manrope',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    color:var(--ink-soft);background:none;border:0;border-bottom:3px solid transparent;
+    padding:12px 14px;margin-bottom:-2px;cursor:pointer;white-space:nowrap;flex-shrink:0;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:26px}
+  .kpi{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--accent);padding:16px 18px}
+  .kpi:nth-child(2){border-top-color:var(--jade)}
+  .kpi:nth-child(3){border-top-color:var(--twilight)}
+  .kpi:nth-child(4){border-top-color:var(--plum)}
+  .kpi .lab{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .kpi .val{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:30px;line-height:1.1;margin-top:6px}
+  .kpi .val.money{font-size:26px}
+  .kpi .sub{font-size:11.5px;color:var(--ink-soft);margin-top:3px}
+
+  .panel{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .panel + .panel{margin-top:16px}
+  .panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  .panel-head h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21px}
+  .panel-head .mini{font-size:11.5px;color:var(--ink-soft)}
+  .panel-body{padding:6px 20px 18px}
+  .panel-body.flush{padding:0}
+
+  table{width:100%;border-collapse:collapse}
+  th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink)}
+  td{padding:13px 14px;border-bottom:1px solid var(--rule);font-size:13.5px;vertical-align:middle}
+  tr:last-child td{border-bottom:0}
+  td.lab{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15.5px}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .pill{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .pill.paid{background:var(--jade)} .pill.sent{background:var(--twilight)} .pill.draft{background:#8d8474}
+  .pill.overdue{background:var(--accent)} .pill.prep{background:var(--sun)} .pill.ready{background:var(--jade)}
+  .pill.kind{background:var(--ink);color:var(--bone)}
+
+  .list{list-style:none}
+  .list li{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;padding:15px 20px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  .list li:last-child{border-bottom:0}
+  .list .l-main{flex:1;min-width:220px}
+  .list .l-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17.5px;line-height:1.2}
+  .list .l-meta{font-size:12px;color:var(--ink-soft);margin-top:4px}
+  .list .l-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;color:var(--ink-soft);margin-top:6px;line-height:1.4}
+  .list .l-side{display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+  .openlink{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:2px;white-space:nowrap}
+  .openlink:hover{color:var(--accent)}
+  .tolink{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+
+  .evt{display:flex;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--rule)}
+  .evt:last-child{border-bottom:0}
+  .evt .d{flex:0 0 84px;font-family:'Cormorant Garamond',serif}
+  .evt .d .dd{font-size:23px;font-weight:600;line-height:1}
+  .evt .d .mm{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-family:'Manrope',sans-serif;margin-top:3px;font-weight:600}
+  .evt .body{flex:1;min-width:0}
+  .evt .t{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:16.5px;line-height:1.2}
+  .evt .loc{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .evt .away{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;white-space:nowrap}
+  .evt .away .u{display:block;font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+  .empty{padding:22px 20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink-soft)}
+  .note-cal{padding:12px 20px;font-size:12px;color:var(--ink-soft);border-top:1px dashed var(--rule)}
+
+  .msg-ok{margin-top:14px;padding:13px 16px;background:var(--accent-soft);border-left:2px solid var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px}
+  .msg-err{margin-top:14px;padding:13px 16px;background:rgba(26,24,22,.05);border-left:2px solid var(--ink);font-size:13px}
+  .msg-err a{color:var(--accent);border-bottom:1px solid var(--accent)}
+
+  /* ── Admin ── */
+  .adminbar{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 18px;margin-top:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .adminbar .lab{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+  .chip{font-family:'Manrope',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--rule);background:#fff;cursor:pointer}
+  .chip.active{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+  .draftbar{margin-top:14px;padding:13px 16px;background:var(--accent-soft);border-left:2px solid var(--accent);font-size:13px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+  .mgr-sec{margin-top:0}
+  .mgr-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .icon-btn{background:none;border:0;cursor:pointer;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);padding:4px 8px}
+  .icon-btn:hover{color:var(--accent)}
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  .fgrid .frow.full{grid-column:1/-1}
+  .pubout{width:100%;min-height:180px;font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.5;background:var(--ink);color:var(--bone);border:0;border-radius:6px;padding:14px;margin-top:12px}
+  .hintline{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin-top:10px}
+  .hintline b{font-weight:600;color:var(--ink)}
+
+  /* ── Modal ── */
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(26,24,22,.55);z-index:60;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto}
+  .modal-bg.show{display:flex}
+  .modal{background:var(--bone);max-width:520px;width:100%;border-top:3px solid var(--accent);padding:26px;margin:auto 0;border-radius:0 0 6px 6px}
+  .modal h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;margin-bottom:20px}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap}
+
+  footer.pfoot{background:var(--ink);color:var(--bone);padding:22px 0;margin-top:auto}
+  .pfoot .inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .pfoot .meta{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,233,218,.6)}
+  .pfoot .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px}
+
+  @media (max-width:640px){
+    .fgrid{grid-template-columns:1fr}
+    .evt .away{display:none}
+    td,th{padding:10px 10px}
+    .panel-head,.panel-body{padding-left:14px;padding-right:14px}
+    .list li,.evt,.empty{padding-left:14px;padding-right:14px}
+    /* invoices table stacks into cards */
+    table.stack thead{display:none}
+    table.stack tr{display:block;border-bottom:1px solid var(--rule);padding:12px 14px}
+    table.stack td{display:flex;justify-content:space-between;gap:14px;border:0;padding:3px 0;font-size:13px}
+    table.stack td::before{content:attr(data-l);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;padding-top:2px}
+    table.stack td.lab{display:block;font-size:16px;padding-bottom:4px}
+    table.stack td.lab::before{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Top band ── -->
+<div class="band">
+  <div class="band-inner">
+    <a class="brand" href="index.html">the&nbsp;<em>happiness</em>&nbsp;collective<span class="stop">.</span></a>
+    <div class="who">
+      <span class="cname hidden" id="bandName"></span>
+      <a class="lnk" href="index.html">← The house</a>
+      <button class="lnk hidden" id="btnLogout" type="button">Sign out</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Login ── -->
+<div class="login-wrap" id="loginView">
+  <div class="login">
+    <div class="seal">悦</div>
+    <h1>The client <em>entrance</em><span class="stop">.</span></h1>
+    <p class="sub">Your files, invoices and reports, in one quiet place.</p>
+    <form id="loginForm" novalidate>
+      <div class="frow">
+        <label for="li-code">Access code</label>
+        <input id="li-code" type="text" autocomplete="username" autocapitalize="characters" spellcheck="false" required />
+      </div>
+      <div class="frow">
+        <label for="li-pass">Passphrase</label>
+        <input id="li-pass" type="password" autocomplete="current-password" required />
+      </div>
+      <button class="btn" type="submit" id="btnLogin"><span id="btnLoginTxt">Enter</span></button>
+    </form>
+    <div class="login-msg err" id="loginErr"></div>
+    <p class="login-note">Access is by invitation. If you have misplaced your key, or would like one, write to <a href="mailto:hello@thehappinesscollective.io">hello@thehappinesscollective.io</a>.</p>
+  </div>
+</div>
+
+<!-- ── App ── -->
+<div class="app hidden" id="appView">
+  <div class="container">
+    <div class="apphead">
+      <div class="eyebrow" id="apEyebrow">Client entrance</div>
+      <h1 id="apTitle"></h1>
+      <div class="asof" id="apAsof"></div>
+    </div>
+
+    <div class="adminbar hidden" id="adminBar">
+      <span class="lab">Viewing</span>
+      <span id="adminChips" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+    </div>
+    <div class="draftbar hidden" id="draftBar">
+      <span>You have <b>unpublished changes</b> saved on this device (<span id="draftWhen"></span>). They are live here, but clients will not see them until you publish.</span>
+      <button class="btn small ghost" type="button" onclick="discardDraft()">Discard draft</button>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="views"></div>
+  </div>
+</div>
+
+<footer class="pfoot">
+  <div class="inner">
+    <span class="meta">The Happiness Collective Pte Ltd · Singapore</span>
+    <span class="sign">悦 · joy, delight, to please</span>
+  </div>
+</footer>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+
+<script src="portal-data.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   THC client entrance.
+   All client data ships encrypted (AES-GCM, key from the client's
+   passphrase via PBKDF2). Decrypting successfully IS the login.
+   The admin passphrase unlocks a master copy of everything and an
+   editing console that re-encrypts and emits a new portal-data.js.
+   ═══════════════════════════════════════════════════════════════ */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const todayStr=()=>new Date().toISOString().slice(0,10);
+const DRAFT_KEY="thc_portal_draft_v1";
+
+/* ── crypto ── */
+const b64=b=>btoa(String.fromCharCode(...new Uint8Array(b)));
+const unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const ITER=250000;
+async function deriveKey(pass,salt){
+  const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(pass),"PBKDF2",false,["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:ITER,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+}
+async function decryptEntry(entry,pass){
+  const key=await deriveKey(pass,unb64(entry.salt));
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(entry.iv)},key,unb64(entry.data));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+async function encryptEntry(obj,pass){
+  const salt=crypto.getRandomValues(new Uint8Array(16));
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const key=await deriveKey(pass,salt);
+  const data=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,new TextEncoder().encode(JSON.stringify(obj)));
+  return {salt:b64(salt),iv:b64(iv),data:b64(data)};
+}
+
+/* ── date / money helpers ── */
+function daysAway(d){const a=new Date(todayStr()),b=new Date(d);return Math.round((b-a)/86400000);}
+function fmtD(d){if(!d)return "";const x=new Date(d);return isNaN(x)?esc(d):x.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});}
+function fmtRange(s,e){const o={day:"numeric",month:"short"};const sd=new Date(s).toLocaleDateString("en-GB",o);return (!e||e===s)?sd:sd+" to "+new Date(e).toLocaleDateString("en-GB",o);}
+function money(a,c){try{return new Intl.NumberFormat("en-SG",{style:"currency",currency:c||"SGD"}).format(a);}catch(e){return (c||"SGD")+" "+(+a).toFixed(2);}}
+function invStatus(inv){
+  const st=(inv.status||"draft").toLowerCase();
+  if(st!=="paid"&&inv.due&&inv.due<todayStr())return "overdue";
+  return st;
+}
+const INV_LAB={paid:"Paid",sent:"Sent",draft:"Draft",overdue:"Overdue"};
+
+/* ── state ── */
+let SESSION=null;   // {role:"client"|"admin", code, data}   data = client payload | admin master
+let ADMIN_IDX=0;    // which client the admin is viewing
+let CUR_TAB="overview";
+
+/* ── login ── */
+const ENC=window.THC_PORTAL_ENC||null;
+$("#loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const err=$("#loginErr");err.classList.remove("show");
+  const code=$("#li-code").value.trim().toUpperCase();
+  const pass=$("#li-pass").value;
+  if(!code||!pass){err.textContent="Both the access code and the passphrase are needed.";err.classList.add("show");return;}
+  if(!ENC){err.textContent="The portal data file is missing. Please write to hello@thehappinesscollective.io.";err.classList.add("show");return;}
+  if(!(window.crypto&&crypto.subtle)){err.textContent="This browser cannot open the portal (no secure context). Please use the https address.";err.classList.add("show");return;}
+  $("#btnLogin").disabled=true;$("#btnLoginTxt").textContent="Opening…";
+  try{
+    if(ENC.admin&&code===(ENC.admin.code||"").toUpperCase()){
+      const master=await decryptEntry(ENC.admin,pass);
+      SESSION={role:"admin",code,pass,data:master};
+      loadDraftIfAny();
+    }else{
+      const entry=(ENC.clients||[]).find(c=>(c.code||"").toUpperCase()===code);
+      if(!entry)throw new Error("no-entry");
+      const payload=await decryptEntry(entry,pass);
+      SESSION={role:"client",code,data:payload};
+    }
+    enterApp();
+  }catch(ex){
+    err.textContent="That code and passphrase do not open a room here. Check both, or write to us for a fresh key.";
+    err.classList.add("show");
+  }finally{
+    $("#btnLogin").disabled=false;$("#btnLoginTxt").textContent="Enter";
+  }
+});
+
+$("#btnLogout").addEventListener("click",()=>{location.reload();});
+
+/* ── app shell ── */
+function curClient(){
+  return SESSION.role==="admin"?SESSION.data.clients[ADMIN_IDX]:SESSION.data;
+}
+function enterApp(){
+  $("#loginView").classList.add("hidden");
+  $("#appView").classList.remove("hidden");
+  $("#btnLogout").classList.remove("hidden");
+  $("#bandName").classList.remove("hidden");
+  if(SESSION.role==="admin"){
+    $("#bandName").textContent="Admin · Justin";
+    $("#adminBar").classList.remove("hidden");
+    renderAdminChips();
+  }else{
+    $("#bandName").textContent=SESSION.data.name||SESSION.code;
+  }
+  CUR_TAB="overview";
+  renderAll();
+}
+function renderAdminChips(){
+  $("#adminChips").innerHTML=SESSION.data.clients.map((c,i)=>
+    `<button type="button" class="chip ${i===ADMIN_IDX?'active':''}" onclick="pickClient(${i})">${esc(c.name||c.code)}</button>`).join("");
+}
+function pickClient(i){ADMIN_IDX=i;renderAdminChips();renderAll();}
+
+function tabsFor(){
+  const t=[["overview","Overview"],["files","Files"],["invoices","Invoices"],["reports","Reports"],["requests","Requests"]];
+  if(SESSION.role==="admin")t.push(["manage","Manage"]);
+  return t;
+}
+function renderAll(){
+  const c=curClient();
+  $("#apEyebrow").textContent=SESSION.role==="admin"?"Admin console · client view":"Client entrance";
+  $("#apTitle").innerHTML=`${esc(c.name||SESSION.code)}<span class="stop">.</span>`;
+  $("#apAsof").textContent="Engagement: "+(c.engagement&&c.engagement.title||"")+" · Updated "+fmtD(ENC&&ENC.updated||todayStr());
+  const tabs=tabsFor();
+  if(!tabs.some(t=>t[0]===CUR_TAB))CUR_TAB="overview";
+  $("#tabs").innerHTML=tabs.map(([k,l])=>`<button type="button" class="tab ${k===CUR_TAB?'active':''}" onclick="goTab('${k}')">${l}</button>`).join("");
+  $("#views").innerHTML=({
+    overview:vOverview,files:vFiles,invoices:vInvoices,reports:vReports,requests:vRequests,manage:vManage
+  })[CUR_TAB](curClient());
+  if(CUR_TAB==="requests")wireRequestForm();
+}
+function goTab(k){CUR_TAB=k;renderAll();window.scrollTo({top:0,behavior:"smooth"});}
+
+/* ── views ── */
+function outstanding(c){
+  return (c.invoices||[]).filter(i=>invStatus(i)!=="paid"&&invStatus(i)!=="draft")
+    .reduce((s,i)=>s+(+i.amount||0),0);
+}
+function vOverview(c){
+  const inv=c.invoices||[],due=outstanding(c);
+  const up=(c.dates||[]).filter(e=>daysAway(e.end||e.start)>=0).sort((a,b)=>a.start.localeCompare(b.start));
+  const next=up[0];
+  const reps=(c.reports||[]).slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const lastRep=reps[0];
+  const eng=c.engagement||{};
+  return `
+  <div class="kpis">
+    <div class="kpi"><div class="lab">Engagement</div><div class="val" style="font-size:22px;padding-top:6px">${esc(eng.status||"Active")}</div><div class="sub">since ${esc(eng.since||"")}</div></div>
+    <div class="kpi"><div class="lab">Balance outstanding</div><div class="val money">${due>0?money(due,(inv[0]||{}).currency):"Nil"}</div><div class="sub">${inv.filter(i=>invStatus(i)==="overdue").length?inv.filter(i=>invStatus(i)==="overdue").length+" overdue":"nothing overdue"}</div></div>
+    <div class="kpi"><div class="lab">Next key date</div><div class="val" style="font-size:20px;padding-top:6px">${next?esc(fmtRange(next.start,next.end)):"None"}</div><div class="sub">${next?esc(next.title):"the calendar is clear"}</div></div>
+    <div class="kpi"><div class="lab">Latest report</div><div class="val" style="font-size:20px;padding-top:6px">${lastRep?esc(lastRep.status||"Ready"):"None yet"}</div><div class="sub">${lastRep?esc(lastRep.title):""}</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>The engagement</h3><span class="mini">${esc(eng.title||"")}</span></div>
+    <div class="panel-body">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;line-height:1.5;color:var(--ink-soft);padding:10px 0 4px">${esc(eng.note||"")}</p>
+      ${eng.cadence?`<p style="font-size:13px;margin-top:8px"><b style="font-weight:600">Rhythm:</b> ${esc(eng.cadence)}</p>`:""}
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>Key dates ahead</h3><span class="mini">days away, counted from today</span></div>
+    <div class="panel-body flush">
+      ${up.length?up.map(evtRow).join(""):`<div class="empty">No dates on the horizon.</div>`}
+    </div>
+  </div>`;
+}
+function evtRow(e){
+  const d=new Date(e.start),da=daysAway(e.start);
+  return `<div class="evt">
+    <div class="d"><div class="dd">${d.getDate()}</div><div class="mm">${d.toLocaleDateString("en-GB",{month:"short"})} ${d.getFullYear()}</div></div>
+    <div class="body"><div class="t">${esc(e.title)}</div><div class="loc">${esc(fmtRange(e.start,e.end))}${e.loc?" · "+esc(e.loc):""}</div></div>
+    <div class="away" style="color:${da<=7?'var(--accent)':da<=30?'var(--sun)':'var(--jade)'}">${da<=0?"now":da}<span class="u">${da<=0?"on now":"days away"}</span></div>
+  </div>`;
+}
+function vFiles(c){
+  const fs=(c.files||[]).slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  return `<div class="panel">
+    <div class="panel-head"><h3>Files</h3><span class="mini">contracts, decks and working documents</span></div>
+    <div class="panel-body flush">
+      ${fs.length?`<ul class="list">`+fs.map(f=>`<li>
+        <div class="l-main">
+          <div class="l-title">${esc(f.title)}</div>
+          <div class="l-meta">${f.kind?`<span class="pill kind">${esc(f.kind)}</span> &nbsp;`:""}${fmtD(f.date)}</div>
+          ${f.note?`<div class="l-note">${esc(f.note)}</div>`:""}
+        </div>
+        <div class="l-side">${f.url?`<a class="openlink" href="${esc(f.url)}" target="_blank" rel="noopener">Open →</a>`:`<span class="tolink">Link to follow</span>`}</div>
+      </li>`).join("")+`</ul>`:`<div class="empty">No files here yet. They will appear as the work does.</div>`}
+      <div class="note-cal">Files open in Google Drive. If a file will not open, you may need access with the Google account we invited; write to us and we will sort it.</div>
+    </div>
+  </div>`;
+}
+function vInvoices(c){
+  const inv=(c.invoices||[]).slice().sort((a,b)=>(b.issued||"").localeCompare(a.issued||""));
+  const due=outstanding(c);
+  return `<div class="panel">
+    <div class="panel-head"><h3>Invoices</h3><span class="mini">${due>0?"outstanding: "+money(due,(inv[0]||{}).currency):"nothing outstanding"}</span></div>
+    <div class="panel-body flush">
+    ${inv.length?`<table class="stack"><thead><tr><th>Invoice</th><th>Issued</th><th>Due</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody>
+      ${inv.map(i=>{const st=invStatus(i);return `<tr>
+        <td class="lab" data-l="Invoice">${esc(i.no)}${i.note?`<div style="font-family:'Manrope',sans-serif;font-weight:400;font-size:11.5px;color:var(--ink-soft);margin-top:2px">${esc(i.note)}</div>`:""}</td>
+        <td data-l="Issued">${fmtD(i.issued)}</td>
+        <td data-l="Due" ${st==="overdue"?'style="color:var(--accent);font-weight:600"':''}>${fmtD(i.due)}</td>
+        <td class="num" data-l="Amount">${money(i.amount,i.currency)}</td>
+        <td data-l="Status"><span class="pill ${st}">${INV_LAB[st]||st}</span></td>
+        <td data-l="">${i.url?`<a class="openlink" href="${esc(i.url)}" target="_blank" rel="noopener">PDF →</a>`:""}</td>
+      </tr>`}).join("")}
+    </tbody></table>`:`<div class="empty">No invoices issued yet.</div>`}
+    <div class="note-cal">A question on an invoice? Write to <a href="mailto:hello@thehappinesscollective.io" style="border-bottom:1px solid var(--accent)">hello@thehappinesscollective.io</a> and we will come back within a working day.</div>
+    </div>
+  </div>`;
+}
+function vReports(c){
+  const reps=(c.reports||[]).slice().sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  return `<div class="panel">
+    <div class="panel-head"><h3>Reports</h3><span class="mini">read on the train, not in a deck</span></div>
+    <div class="panel-body flush">
+      ${reps.length?`<ul class="list">`+reps.map(r=>{
+        const st=(r.status||"Ready").toLowerCase().includes("prep")?"prep":"ready";
+        return `<li>
+        <div class="l-main">
+          <div class="l-title">${esc(r.title)}</div>
+          <div class="l-meta"><span class="pill ${st}">${esc(r.status||"Ready")}</span> &nbsp;${r.period?esc(r.period)+" · ":""}${fmtD(r.date)}</div>
+          ${r.summary?`<div class="l-note">${esc(r.summary)}</div>`:""}
+        </div>
+        <div class="l-side">${r.url?`<a class="openlink" href="${esc(r.url)}" target="_blank" rel="noopener">Read →</a>`:`<span class="tolink">On its way</span>`}</div>
+      </li>`}).join("")+`</ul>`:`<div class="empty">The first report is being written.</div>`}
+    </div>
+  </div>`;
+}
+function vRequests(c){
+  return `<div class="panel">
+    <div class="panel-head"><h3>Ask for something</h3><span class="mini">lands directly with Justin</span></div>
+    <div class="panel-body">
+      <form id="reqForm" style="max-width:560px;padding-top:10px" novalidate>
+        <div class="frow"><label for="rq-name">Your name</label><input id="rq-name" name="name" type="text" required /></div>
+        <div class="frow"><label for="rq-email">Your email</label><input id="rq-email" name="email" type="email" required /></div>
+        <div class="frow"><label for="rq-msg">The request</label><textarea id="rq-msg" name="message" required placeholder="What you need, and when you need it by."></textarea></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true" />
+        <button class="btn" type="submit" id="rqBtn">Send the request</button>
+        <div class="msg-ok" id="rqOk" style="display:none">Received. We will come back within a working day.</div>
+        <div class="msg-err" id="rqErr" style="display:none">That did not send. Please <a href="mailto:hello@thehappinesscollective.io">email us directly</a>.</div>
+      </form>
+    </div>
+  </div>`;
+}
+function wireRequestForm(){
+  const f=$("#reqForm");if(!f)return;
+  f.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!f.reportValidity())return;
+    const btn=$("#rqBtn");btn.disabled=true;
+    $("#rqOk").style.display="none";$("#rqErr").style.display="none";
+    try{
+      const fd=new FormData(f);
+      fd.append("_subject","Client portal request · "+(curClient().name||SESSION.code));
+      fd.append("_template","table");fd.append("_captcha","false");
+      const res=await fetch("https://formsubmit.co/ajax/justin@thehappinesscollective.io",{method:"POST",headers:{Accept:"application/json"},body:fd});
+      if(!res.ok)throw 0;
+      f.reset();$("#rqOk").style.display="block";
+    }catch(err){$("#rqErr").style.display="block";}
+    finally{btn.disabled=false;}
+  });
+}
+
+/* ═══════════ admin: manage & publish ═══════════ */
+function saveDraft(){
+  if(SESSION.role!=="admin")return;
+  localStorage.setItem(DRAFT_KEY,JSON.stringify({savedAt:new Date().toISOString(),master:SESSION.data}));
+  showDraftBar();
+}
+function loadDraftIfAny(){
+  try{
+    const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"null");
+    if(d&&d.master&&JSON.stringify(d.master)!==JSON.stringify(SESSION.data)){
+      SESSION.data=d.master;showDraftBar(d.savedAt);
+    }
+  }catch(e){}
+}
+function showDraftBar(when){
+  const d=JSON.parse(localStorage.getItem(DRAFT_KEY)||"null");
+  if(!d)return;
+  $("#draftBar").classList.remove("hidden");
+  $("#draftWhen").textContent=fmtD((when||d.savedAt||"").slice(0,10));
+}
+function doDiscard(){
+  localStorage.removeItem(DRAFT_KEY);
+  location.reload();
+}
+function discardDraft(){
+  openModal(`<h3>Discard the draft?</h3>
+    <p style="font-size:14px;line-height:1.6">This removes the unpublished changes saved on this device and reloads the published data. It cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn ghost small" type="button" onclick="closeModal()">Keep the draft</button>
+      <button class="btn small" type="button" onclick="doDiscard()">Discard it</button>
+    </div>`);
+}
+
+function vManage(c){
+  const m=SESSION.data;
+  const files=(c.files||[]),inv=(c.invoices||[]),reps=(c.reports||[]),dates=(c.dates||[]);
+  const row=(coll,i,label,meta)=>`<li>
+    <div class="l-main"><div class="l-title">${esc(label)}</div><div class="l-meta">${esc(meta||"")}</div></div>
+    <div class="l-side mgr-actions">
+      <button class="icon-btn" type="button" onclick="openEditor('${coll}',${i})">Edit</button>
+      <button class="icon-btn" type="button" onclick="delItem('${coll}',${i})">Delete</button>
+    </div></li>`;
+  return `
+  <div class="panel">
+    <div class="panel-head"><h3>Client details &amp; keys</h3>
+      <div class="mgr-actions"><button class="btn small ghost" type="button" onclick="openEditor('client',-1)">Edit details</button></div></div>
+    <div class="panel-body">
+      <p style="font-size:13.5px;padding-top:8px"><b style="font-weight:600">${esc(c.name)}</b> · access code <b style="font-weight:600">${esc(c.code)}</b> · passphrase <b style="font-weight:600">${esc(c.passcode||"(not set)")}</b></p>
+      <p class="hintline">The passphrase shown here is what the client types to enter. Change it in Edit details, then publish. Share new keys in person or by phone, not in the same email as the address.</p>
+    </div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Files</h3><div class="mgr-actions"><button class="btn small ghost" type="button" onclick="openEditor('files',-1)">+ Add file</button></div></div>
+    <div class="panel-body flush">${files.length?`<ul class="list">`+files.map((f,i)=>row('files',i,f.title,(f.kind||"")+" · "+fmtD(f.date))).join("")+`</ul>`:`<div class="empty">Nothing here.</div>`}</div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Invoices</h3><div class="mgr-actions"><button class="btn small ghost" type="button" onclick="openEditor('invoices',-1)">+ Add invoice</button></div></div>
+    <div class="panel-body flush">${inv.length?`<ul class="list">`+inv.map((v,i)=>row('invoices',i,v.no+" · "+money(v.amount,v.currency),"issued "+fmtD(v.issued)+" · due "+fmtD(v.due)+" · "+(INV_LAB[invStatus(v)]||v.status))).join("")+`</ul>`:`<div class="empty">Nothing here.</div>`}</div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Reports</h3><div class="mgr-actions"><button class="btn small ghost" type="button" onclick="openEditor('reports',-1)">+ Add report</button></div></div>
+    <div class="panel-body flush">${reps.length?`<ul class="list">`+reps.map((r,i)=>row('reports',i,r.title,(r.status||"")+" · "+fmtD(r.date))).join("")+`</ul>`:`<div class="empty">Nothing here.</div>`}</div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Key dates</h3><div class="mgr-actions"><button class="btn small ghost" type="button" onclick="openEditor('dates',-1)">+ Add date</button></div></div>
+    <div class="panel-body flush">${dates.length?`<ul class="list">`+dates.map((d,i)=>row('dates',i,d.title,fmtRange(d.start,d.end)+(d.loc?" · "+d.loc:""))).join("")+`</ul>`:`<div class="empty">Nothing here.</div>`}</div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Admin key &amp; new clients</h3>
+      <div class="mgr-actions">
+        <button class="btn small ghost" type="button" onclick="openEditor('admin',-1)">Change admin passphrase</button>
+        <button class="btn small ghost" type="button" onclick="addClient()">+ Add a client</button>
+      </div></div>
+    <div class="panel-body"><p class="hintline">The admin passphrase opens everything, so make it long. A new client needs a name, a short access code and a passphrase; hand the keys over privately.</p></div>
+  </div>
+
+  <div class="panel mgr-sec">
+    <div class="panel-head"><h3>Publish</h3><span class="mini">re-encrypts everything and emits a fresh portal-data.js</span></div>
+    <div class="panel-body">
+      <p class="hintline" style="padding-top:8px">Changes made here live only on this device until published. <b>Publish</b> encrypts every client's room with their passphrase, then gives you the new <b>portal-data.js</b>. Replace that one file in the GitHub repository (jothc168/thehappinesscollective) and the site rebuilds itself in about a minute.</p>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+        <button class="btn small" type="button" id="pubBtn" onclick="publish()">Publish · generate portal-data.js</button>
+        <button class="btn small ghost hidden" id="pubCopy" type="button" onclick="copyPub()">Copy to clipboard</button>
+        <button class="btn small ghost hidden" id="pubDl" type="button" onclick="downloadPub()">Download the file</button>
+      </div>
+      <textarea class="pubout hidden" id="pubOut" readonly spellcheck="false"></textarea>
+    </div>
+  </div>`;
+}
+
+/* modal helpers */
+function openModal(html){$("#modalBox").innerHTML=html;$("#modalBg").classList.add("show");}
+function closeModal(){$("#modalBg").classList.remove("show");}
+$("#modalBg").addEventListener("click",e=>{if(e.target.id==="modalBg")closeModal();});
+
+const FIELDS={
+  files:[["title","Title","text"],["kind","Kind (Agreement, Deck, Working doc…)","text"],["date","Date","date"],["url","Link (Google Drive)","text"],["note","Note","text"]],
+  invoices:[["no","Invoice number","text"],["issued","Issued","date"],["due","Due","date"],["amount","Amount (number only)","number"],["currency","Currency (SGD, THB…)","text"],["status","Status (draft / sent / paid)","text"],["url","Link to PDF","text"],["note","Note","text"]],
+  reports:[["title","Title","text"],["period","Period (e.g. July 2026)","text"],["date","Date","date"],["status","Status (In preparation / Ready)","text"],["url","Link","text"],["summary","One line summary","text"]],
+  dates:[["title","Title","text"],["start","Start","date"],["end","End (optional)","date"],["loc","Location","text"]]
+};
+function openEditor(coll,idx){
+  const c=curClient();
+  if(coll==="client"){
+    openModal(`<h3>Client details</h3>
+      <div class="fgrid">
+      <div class="frow full"><label>Name (shown to the client)</label><input id="ed-name" value="${esc(c.name||"")}"></div>
+      <div class="frow"><label>Access code</label><input id="ed-code" value="${esc(c.code||"")}"></div>
+      <div class="frow"><label>Passphrase</label><input id="ed-pass" value="${esc(c.passcode||"")}"></div>
+      <div class="frow full"><label>Engagement title</label><input id="ed-etitle" value="${esc((c.engagement||{}).title||"")}"></div>
+      <div class="frow"><label>Status</label><input id="ed-estatus" value="${esc((c.engagement||{}).status||"")}"></div>
+      <div class="frow"><label>Since</label><input id="ed-esince" value="${esc((c.engagement||{}).since||"")}"></div>
+      <div class="frow full"><label>Rhythm / cadence</label><input id="ed-ecad" value="${esc((c.engagement||{}).cadence||"")}"></div>
+      <div class="frow full"><label>Engagement note</label><textarea id="ed-enote">${esc((c.engagement||{}).note||"")}</textarea></div>
+      </div>
+      <div class="modal-actions"><button class="btn ghost small" type="button" onclick="closeModal()">Cancel</button>
+      <button class="btn small" type="button" onclick="saveClientDetails()">Save</button></div>`);
+    return;
+  }
+  if(coll==="admin"){
+    openModal(`<h3>Admin passphrase</h3>
+      <div class="frow"><label>New admin passphrase (make it long)</label><input id="ed-apass" value="${esc(SESSION.pass||"")}"></div>
+      <p class="hintline">Takes effect when you publish. Do not lose it: there is no reset, only re-publishing a fresh file from this console while you are still signed in.</p>
+      <div class="modal-actions"><button class="btn ghost small" type="button" onclick="closeModal()">Cancel</button>
+      <button class="btn small" type="button" onclick="saveAdminPass()">Save</button></div>`);
+    return;
+  }
+  const item=idx>=0?(c[coll]||[])[idx]:{};
+  openModal(`<h3>${idx>=0?"Edit":"Add"} ${coll==="dates"?"key date":coll.slice(0,-1)}</h3>
+    <div class="fgrid">${FIELDS[coll].map(([k,l,t])=>
+      `<div class="frow ${["title","note","summary","url"].includes(k)?"full":""}"><label>${l}</label><input id="ed-${k}" type="${t}" value="${esc(item[k]||"")}" ${t==="number"?'step="0.01"':''}></div>`).join("")}
+    </div>
+    <div class="modal-actions"><button class="btn ghost small" type="button" onclick="closeModal()">Cancel</button>
+    <button class="btn small" type="button" onclick="saveItem('${coll}',${idx})">Save</button></div>`);
+}
+function saveClientDetails(){
+  const c=curClient();
+  c.name=$("#ed-name").value.trim();
+  c.code=$("#ed-code").value.trim().toUpperCase();
+  c.passcode=$("#ed-pass").value;
+  c.engagement=Object.assign(c.engagement||{},{
+    title:$("#ed-etitle").value.trim(),status:$("#ed-estatus").value.trim(),
+    since:$("#ed-esince").value.trim(),cadence:$("#ed-ecad").value.trim(),note:$("#ed-enote").value.trim()});
+  closeModal();saveDraft();renderAdminChips();renderAll();
+}
+function saveAdminPass(){
+  SESSION.pass=$("#ed-apass").value;
+  closeModal();saveDraft();renderAll();
+}
+function saveItem(coll,idx){
+  const c=curClient();c[coll]=c[coll]||[];
+  const o=idx>=0?c[coll][idx]:{};
+  FIELDS[coll].forEach(([k])=>{o[k]=$("#ed-"+k).value.trim();});
+  if(coll==="invoices")o.amount=+o.amount||0;
+  if(idx<0)c[coll].push(o);
+  closeModal();saveDraft();renderAll();
+}
+function delItem(coll,idx){
+  const c=curClient();
+  openModal(`<h3>Delete this ${coll==="dates"?"key date":coll.slice(0,-1)}?</h3>
+    <p style="font-size:14px">It disappears from the draft now, and from the client's view when you publish.</p>
+    <div class="modal-actions"><button class="btn ghost small" type="button" onclick="closeModal()">Keep it</button>
+    <button class="btn small" type="button" onclick="(function(){curClient()['${coll}'].splice(${idx},1);saveDraft();closeModal();renderAll();})()">Delete</button></div>`);
+}
+function addClient(){
+  SESSION.data.clients.push({code:"NEW",passcode:"",name:"New client",
+    engagement:{title:"",status:"Active",since:"",cadence:"",note:""},
+    files:[],invoices:[],reports:[],dates:[]});
+  ADMIN_IDX=SESSION.data.clients.length-1;
+  saveDraft();renderAdminChips();renderAll();openEditor("client",-1);
+}
+
+/* publish */
+async function publish(){
+  const btn=$("#pubBtn");btn.disabled=true;btn.textContent="Encrypting…";
+  try{
+    const m=SESSION.data;
+    for(const c of m.clients){
+      if(!c.code||!c.passcode)throw new Error("Client "+(c.name||"?")+" needs both an access code and a passphrase before publishing.");
+    }
+    const clientsEnc=[];
+    for(const c of m.clients){
+      const payload={name:c.name,engagement:c.engagement,files:c.files||[],invoices:c.invoices||[],reports:c.reports||[],dates:c.dates||[]};
+      const e=await encryptEntry(payload,c.passcode);
+      clientsEnc.push({code:c.code.toUpperCase(),salt:e.salt,iv:e.iv,data:e.data});
+    }
+    const adm=await encryptEntry(m,SESSION.pass);
+    const out={v:1,updated:todayStr(),clients:clientsEnc,admin:{code:(ENC&&ENC.admin&&ENC.admin.code)||"JUSTIN",salt:adm.salt,iv:adm.iv,data:adm.data}};
+    const txt="/* The Happiness Collective · client portal data.\n   Generated by the portal admin console on "+todayStr()+".\n   Every room is encrypted with its client's passphrase; this file holds no plaintext.\n   Replace this whole file in the repository to publish. */\nwindow.THC_PORTAL_ENC = "+JSON.stringify(out,null,1)+";\n";
+    $("#pubOut").value=txt;
+    $("#pubOut").classList.remove("hidden");$("#pubCopy").classList.remove("hidden");$("#pubDl").classList.remove("hidden");
+  }catch(ex){
+    openModal(`<h3>Not published</h3><p style="font-size:14px;line-height:1.6">${esc(ex.message||ex)}</p>
+    <div class="modal-actions"><button class="btn small" type="button" onclick="closeModal()">Back</button></div>`);
+  }finally{btn.disabled=false;btn.textContent="Publish · generate portal-data.js";}
+}
+async function copyPub(){
+  try{await navigator.clipboard.writeText($("#pubOut").value);$("#pubCopy").textContent="Copied ✓";
+    setTimeout(()=>$("#pubCopy").textContent="Copy to clipboard",2000);}catch(e){$("#pubOut").select();document.execCommand("copy");}
+}
+function downloadPub(){
+  const blob=new Blob([$("#pubOut").value],{type:"text/javascript"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="portal-data.js";a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>

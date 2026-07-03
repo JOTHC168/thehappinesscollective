@@ -214,17 +214,23 @@
 
   @media (max-width: 960px){
     .work-grid{grid-template-columns:1fr 1fr;gap:24px}
-    .foot-top{grid-template-columns:1fr 1fr;gap:36px}
+    .foot-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+    .foot-col a,.foot-tag{overflow-wrap:anywhere}
   }
-  @media (max-width: 640px){
-    .nav-links{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:24px;border-top:1px solid var(--rule)}
+  @media (max-width: 960px){
+    /* burger nav from tablet down: six links no longer fit beside the wordmark */
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;height:calc(100svh - var(--nav-h));background:var(--bone);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:40px var(--pad-x);gap:8px;border-top:1px solid var(--rule);overflow-y:auto}
     .nav-links.open{display:flex}
     .nav-links a{font-size:22px;font-family:'Cormorant Garamond',serif;font-style:italic;opacity:1;display:block;width:100%;padding:11px 0}
     .nav-burger{display:block}
+    body.nav-open{overflow:hidden}
+  }
+  @media (max-width: 640px){
     .work-grid{grid-template-columns:1fr;gap:22px}
     .cta-actions{flex-direction:column;align-items:stretch}
     .btn{width:100%;justify-content:center}
     .foot-col a{display:inline-block;padding:9px 0}
+    .foot-top{grid-template-columns:1fr;gap:28px}
     .foot-col ul{gap:2px}
     .foot-brand{font-size:28px}
   }
@@ -248,6 +254,7 @@
       <a href="index.html#approach">Approach</a>
       <a href="projects.html" class="active">Work</a>
       <a href="index.html#founder">About</a>
+      <a href="portal.html">Client login</a>
       <a href="index.html#contact" class="nav-cta">Begin a conversation</a>
     </nav>
     <button class="nav-burger" id="navBurger" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
@@ -381,6 +388,7 @@
           <li><a href="projects.html">Selected work</a></li>
           <li><a href="index.html#approach">Our approach</a></li>
           <li><a href="index.html#contact">Begin a conversation</a></li>
+          <li><a href="portal.html">Client login</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -411,10 +419,12 @@
   burger.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     nav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
     burger.setAttribute('aria-expanded', String(open));
   });
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open'); nav.classList.remove('open');
+    document.body.classList.remove('nav-open');
     burger.setAttribute('aria-expanded', 'false');
   }));
 
