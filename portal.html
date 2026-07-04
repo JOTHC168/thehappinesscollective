@@ -373,7 +373,7 @@ function enterApp(){
   $("#btnLogout").classList.remove("hidden");
   $("#bandName").classList.remove("hidden");
   if(SESSION.role==="admin"){
-    $("#bandName").textContent="Admin · Justin";
+    $("#bandName").textContent="Admin";
     $("#adminBar").classList.remove("hidden");
     renderAdminChips();
   }else{
@@ -508,7 +508,7 @@ function vReports(c){
 }
 function vRequests(c){
   return `<div class="panel">
-    <div class="panel-head"><h3>Ask for something</h3><span class="mini">lands directly with Justin</span></div>
+    <div class="panel-head"><h3>Ask for something</h3><span class="mini">lands directly with the team</span></div>
     <div class="panel-body">
       <form id="reqForm" style="max-width:560px;padding-top:10px" novalidate>
         <div class="frow"><label for="rq-name">Your name</label><input id="rq-name" name="name" type="text" required /></div>
