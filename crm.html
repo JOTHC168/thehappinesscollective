@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Contacts — The Happiness Collective</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="referrer" content="no-referrer" />
+<meta name="description" content="Private." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" />
+<style>
+  :root{
+    --bone:#F1E9DA; --paper:#F8F2E6; --ink:#1A1816; --ink-2:#2A2520; --ink-soft:#5B544A;
+    --accent:#D9542B; --accent-soft:rgba(217,84,43,.10);
+    --jade:#4A6E5C; --twilight:#3C4F6E; --plum:#8A3B5C; --sun:#C46A40;
+    --rule:rgba(26,24,22,.16); --panel:#FCF7EC;
+    --green:#3f7a5f; --green-soft:rgba(63,122,95,.12);
+    --amber:#9a6a1f; --amber-soft:rgba(154,106,31,.14);
+    --red:#b0442a; --red-soft:rgba(176,68,42,.12);
+    --violet:#7a4a86; --violet-soft:rgba(122,74,134,.12);
+    --blue:#3C4F6E; --blue-soft:rgba(60,79,110,.12);
+    --slate:#5B544A; --slate-soft:rgba(91,84,74,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bone);color:var(--ink);font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;
+    font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100svh}
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:400}
+  a{color:var(--accent);text-decoration:none}
+  ::selection{background:var(--accent);color:var(--bone)}
+
+  /* gate */
+  #gate{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .gatebox{width:400px;max-width:100%;background:var(--paper);border:1px solid var(--rule);border-radius:16px;
+    padding:34px 30px;box-shadow:0 20px 60px rgba(26,24,22,.10)}
+  .gatebox .mark{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  .gatebox h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;margin:6px 0 4px;letter-spacing:-.01em}
+  .gatebox p{color:var(--ink-soft);font-size:13px;margin-bottom:18px}
+  .gatebox label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  .gatebox input{width:100%;padding:12px 13px;border:1px solid var(--rule);border-radius:10px;background:#fff;
+    color:var(--ink);font-size:15px;font-family:inherit}
+  .gatebox button{width:100%;margin-top:14px;padding:12px;border:0;border-radius:10px;background:var(--ink);color:var(--bone);
+    font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.02em}
+  .gatebox button:disabled{opacity:.6;cursor:default}
+  .gateErr{color:var(--red);font-size:12.5px;margin-top:12px;min-height:16px}
+  .gatehint{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-soft)}
+
+  /* app */
+  #app{display:none;max-width:1480px;margin:0 auto;padding:18px 22px 80px}
+  header.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  header .mark{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+  header h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:-.01em}
+  header .actions{display:flex;gap:8px}
+  .btn{border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:7px 12px;border-radius:9px;
+    cursor:pointer;font-size:12.5px;font-family:inherit}
+  .btn:hover{border-color:var(--accent)}
+  .sub{color:var(--ink-soft);font-size:12.5px;margin-bottom:14px}
+  .banner{display:flex;gap:10px;background:var(--amber-soft);border:1px solid rgba(154,106,31,.35);color:var(--amber);
+    border-radius:10px;padding:8px 12px;font-size:12px;margin-bottom:14px}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:15px}
+  .tile{background:var(--panel);border:1px solid var(--rule);border-radius:11px;padding:10px 12px}
+  .tile .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .tile .v{font-size:20px;font-weight:650;margin-top:2px}
+
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .search{flex:1;min-width:210px}
+  .search input{width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:9px;background:#fff;color:var(--ink);font-size:14px;font-family:inherit}
+  select.f{padding:8px 9px;border:1px solid var(--rule);border-radius:9px;background:var(--paper);color:var(--ink);font-size:12.5px;font-family:inherit}
+  .viewtoggle{display:flex;border:1px solid var(--rule);border-radius:9px;overflow:hidden}
+  .viewtoggle button{border:0;background:var(--paper);color:var(--ink-soft);padding:8px 12px;cursor:pointer;font-size:12.5px;font-family:inherit}
+  .viewtoggle button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;background:var(--panel);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+  thead th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);
+    padding:10px 12px;border-bottom:1px solid var(--rule);cursor:pointer;white-space:nowrap;user-select:none}
+  tbody td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:middle}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:var(--accent-soft)}
+  tbody tr:last-child td{border-bottom:0}
+  .nm{font-weight:600}
+  .mut{color:var(--ink-soft);font-size:12px}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:600;white-space:nowrap}
+  .b-none{background:var(--green-soft);color:var(--green)} .b-amber{background:var(--amber-soft);color:var(--amber)}
+  .b-red{background:var(--red-soft);color:var(--red)} .b-client{background:var(--violet-soft);color:var(--violet)}
+  .st{display:inline-block;padding:2px 8px;border-radius:6px;font-size:10.5px;font-weight:600}
+  .st-Active{background:var(--green-soft);color:var(--green)} .st-Prospect{background:var(--blue-soft);color:var(--blue)}
+  .st-Nurture{background:var(--amber-soft);color:var(--amber)} .st-Watch{background:var(--slate-soft);color:var(--slate)}
+  .st-Hold{background:var(--red-soft);color:var(--red)} .st-Client{background:var(--violet-soft);color:var(--violet)}
+  .seg{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--slate-soft);font-size:11px}
+  .pri-High{color:var(--red);font-weight:600} .pri-Medium{color:var(--amber);font-weight:600} .pri-Low{color:var(--ink-soft);font-weight:600}
+
+  .board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:11px}
+  .col{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px}
+  .col h3{font-size:12px;margin:2px 4px 9px;display:flex;justify-content:space-between}
+  .col h3 span{color:var(--ink-soft);font-weight:400}
+  .card{border:1px solid var(--rule);border-radius:9px;padding:9px 10px;margin-bottom:8px;cursor:pointer;background:var(--bone)}
+  .card:hover{border-color:var(--accent)}
+  .card .cn{font-weight:600;font-size:12.5px} .card .cc{color:var(--ink-soft);font-size:11px;margin-top:1px}
+
+  .scrim{position:fixed;inset:0;background:rgba(26,24,22,.4);opacity:0;pointer-events:none;transition:.15s;z-index:15}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:430px;max-width:94vw;background:var(--paper);border-left:1px solid var(--rule);
+    box-shadow:-8px 0 30px rgba(26,24,22,.18);transform:translateX(100%);transition:transform .2s;overflow-y:auto;z-index:20}
+  .drawer.on{transform:translateX(0)}
+  .dh{padding:18px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--paper)}
+  .dh .x{float:right;border:0;background:transparent;font-size:22px;cursor:pointer;color:var(--ink-soft);line-height:1}
+  .dh h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px}
+  .dh .co{color:var(--ink-soft);font-size:13px;margin-top:2px}
+  .db{padding:16px 18px}
+  .fld{margin-bottom:12px}
+  .fld label{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px}
+  .fld .v{font-size:13.5px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tg{display:inline-block;background:var(--slate-soft);color:var(--ink-soft);border-radius:6px;padding:2px 8px;font-size:10.5px;margin:0 4px 4px 0}
+  .empty{padding:40px;text-align:center;color:var(--ink-soft)}
+  footer{margin-top:20px;color:var(--ink-soft);font-size:11px;text-align:center}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gatebox">
+    <div class="mark">The Happiness Collective</div>
+    <h1 class="serif">Contacts</h1>
+    <p>Private working directory. Enter the passphrase to open.</p>
+    <form id="gateForm" autocomplete="off">
+      <label for="pass">Passphrase</label>
+      <input id="pass" type="password" autocomplete="current-password" autofocus />
+      <button id="gateBtn" type="submit">Open</button>
+    </form>
+    <div class="gateErr" id="gateErr"></div>
+    <div class="gatehint">Everything ships encrypted (AES-GCM, key from your passphrase via PBKDF2). Decrypting is the login. Nothing here is stored or sent anywhere.</div>
+  </div>
+</div>
+
+<div id="app">
+  <header class="top">
+    <div>
+      <div class="mark">The Happiness Collective · internal</div>
+      <h1 class="serif">Tourism &amp; Hospitality Contacts</h1>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="exportData('csv')">Export CSV</button>
+      <button class="btn" onclick="lock()">Lock</button>
+    </div>
+  </header>
+  <div class="sub" id="subline"></div>
+  <div class="banner"><span>⚑</span><div>Read-only. Edit in the local CRM, then re-publish. Never newsletter a <b>conflict-hold</b> contact while the TAT engagement runs; record a PDPA consent basis before any send.</div></div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="toolbar">
+    <div class="search"><input id="q" placeholder="Search name, company, email, country, title, tag…" oninput="render()"/></div>
+    <select class="f" id="fList" onchange="render()"><option value="">All lists</option><option>Rolodex</option><option>Pipeline</option></select>
+    <select class="f" id="fSegment" onchange="render()"></select>
+    <select class="f" id="fStatus" onchange="render()"><option value="">All statuses</option><option>Active</option><option>Prospect</option><option>Nurture</option><option>Watch</option><option>Hold</option><option>Client</option></select>
+    <select class="f" id="fConflict" onchange="render()"><option value="">All conflict</option><option value="none">No conflict</option><option value="amber">Judgement call</option><option value="red">Conflict — hold</option><option value="client">Current client</option></select>
+    <select class="f" id="fConsent" onchange="render()"><option value="">All consent</option><option>None</option><option>Implied</option><option>Express</option><option>Opted-out</option></select>
+    <select class="f" id="fNews" onchange="render()"><option value="">All newsletter</option><option value="review">Review</option><option value="ready">Ready</option><option value="hold">Hold</option></select>
+    <div class="viewtoggle"><button id="vTable" class="on" onclick="setView('table')">Table</button><button id="vBoard" onclick="setView('board')">Board</button></div>
+  </div>
+
+  <div id="main"></div>
+  <footer>Encrypted internal directory · The Happiness Collective</footer>
+</div>
+
+<div class="scrim" id="scrim" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer"></aside>
+
+<script src="crm-data.js"></script>
+<script>
+/* ── crypto (identical to the client portal) ── */
+const unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const ITER=250000;
+async function deriveKey(pass,salt){
+  const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(pass),"PBKDF2",false,["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:ITER,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+}
+async function decryptEntry(entry,pass){
+  const key=await deriveKey(pass,unb64(entry.salt));
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(entry.iv)},key,unb64(entry.data));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+const ENC=window.THC_CRM_ENC||null;
+let DATA=[], VIEW="table", SORT={key:"name",dir:1};
+const SEG_ORDER=["Tourism Board / DMO","Hotel & Resort","Attraction / Experience","Attraction / Integrated Resort","Airline","Travel Operator","Industry Association","Travel Tech / OTA","Travel Tech / Loyalty","Payments / Partner","Agency / Media","Research / Consultancy","Unknown — enrich"];
+const STATUS_ORDER=["Client","Active","Prospect","Nurture","Watch","Hold"];
+
+document.getElementById("gateForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const err=document.getElementById("gateErr"); err.textContent="";
+  const pass=document.getElementById("pass").value;
+  if(!pass){ err.textContent="Enter the passphrase."; return; }
+  if(!ENC){ err.textContent="No data has been published yet. Run “Encrypt for website” in the local CRM and add crm-data.js."; return; }
+  if(!(window.crypto&&crypto.subtle)){ err.textContent="This browser can’t decrypt here. Use the https address."; return; }
+  const btn=document.getElementById("gateBtn"); btn.disabled=true; btn.textContent="Opening…";
+  try{
+    DATA=await decryptEntry(ENC,pass);
+    if(!Array.isArray(DATA)) throw new Error("bad");
+    document.getElementById("gate").style.display="none";
+    document.getElementById("app").style.display="block";
+    buildFilters(); render();
+  }catch(ex){
+    err.textContent="That passphrase does not open this directory.";
+  }finally{ btn.disabled=false; btn.textContent="Open"; }
+});
+function lock(){ location.reload(); }
+
+function normalize(c){
+  const r=Object.assign({},c);
+  r.list=r.list||(r.source==="THC pipeline"?"Pipeline":"Rolodex");
+  r.status=r.status||(r.conflict==="client"?"Client":r.conflict==="red"?"Hold":r.conflict==="amber"?"Nurture":"Active");
+  if(!r.priority){const t=r.tags||[];r.priority=(r.conflict==="red"||t.includes("enrich"))?"Low":(t.includes("nto")||r.segment==="Industry Association"||t.includes("thc-prospect")||t.includes("thc-channel"))?"High":"Medium";}
+  r.consent=r.consent||"None"; r.owner=r.owner||"Justin"; r.lastContact=r.lastContact||""; r.nextStep=r.nextStep||"";
+  return r;
+}
+function all(){ return DATA.map(normalize); }
+function conflictBadge(c){const m={none:["b-none","No conflict"],amber:["b-amber","Judgement call"],red:["b-red","Conflict — hold"],client:["b-client","Current client"]}[c.conflict]||["b-none","No conflict"];return `<span class="badge ${m[0]}">${m[1]}</span>`;}
+function statusTag(c){return `<span class="st st-${c.status}">${esc(c.status)}</span>`;}
+function nl(c){const s=c.newsletter||"review";return `<span class="mut">${{review:"Review",ready:"Ready",hold:"Hold"}[s]||s}</span>`;}
+
+function buildFilters(){
+  const segs=[...new Set(all().map(c=>c.segment))].sort();
+  document.getElementById("fSegment").innerHTML='<option value="">All segments</option>'+segs.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+}
+function F(id){return document.getElementById(id).value;}
+function filtered(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  return all().filter(c=>{
+    if(F("fList")&&c.list!==F("fList"))return false;
+    if(F("fSegment")&&c.segment!==F("fSegment"))return false;
+    if(F("fStatus")&&c.status!==F("fStatus"))return false;
+    if(F("fConflict")&&c.conflict!==F("fConflict"))return false;
+    if(F("fConsent")&&c.consent!==F("fConsent"))return false;
+    if(F("fNews")&&(c.newsletter||"review")!==F("fNews"))return false;
+    if(q){const h=[c.name,c.company,c.email,c.country,c.title,c.status,(c.tags||[]).join(" "),c.notes,c.nextStep].join(" ").toLowerCase();if(!h.includes(q))return false;}
+    return true;
+  });
+}
+function tiles(){
+  const a=all();
+  const t=[["Total",a.length],["Pipeline",a.filter(c=>c.list==="Pipeline").length],["Tourism boards",a.filter(c=>(c.tags||[]).includes("nto")).length],["Conflict hold",a.filter(c=>c.conflict==="red").length],["Judgement",a.filter(c=>c.conflict==="amber").length],["Consented",a.filter(c=>c.consent==="Express"||c.consent==="Implied").length]];
+  document.getElementById("tiles").innerHTML=t.map(x=>`<div class="tile"><div class="k">${x[0]}</div><div class="v">${x[1]}</div></div>`).join("");
+  document.getElementById("subline").textContent=`${a.length} contacts · ${new Set(a.map(c=>c.company).filter(Boolean)).size} organisations · ${a.filter(c=>c.list==="Pipeline").length} pipeline · read-only`;
+}
+function sortBy(k){SORT.dir=SORT.key===k?-SORT.dir:1;SORT.key=k;render();}
+function sortList(l){const k=SORT.key;return l.slice().sort((a,b)=>{let x=(a[k]||"").toString().toLowerCase(),y=(b[k]||"").toString().toLowerCase();return x<y?-SORT.dir:x>y?SORT.dir:0;});}
+function renderTable(list){
+  if(!list.length)return `<div class="empty">No contacts match these filters.</div>`;
+  const cols=[["name","Name"],["company","Company"],["segment","Segment"],["country","Country"],["status","Status"],["priority","Priority"],["conflict","Conflict"],["consent","Consent"],["newsletter","News"]];
+  const head=cols.map(c=>`<th onclick="sortBy('${c[0]}')">${c[1]}${SORT.key===c[0]?(SORT.dir>0?" ▲":" ▼"):""}</th>`).join("");
+  const rows=sortList(list).map((c,i)=>`<tr onclick="openDrawer(${DATA.indexOf(rawOf(c))})">
+    <td><div class="nm">${esc(c.name)}</div><div class="mut">${esc(c.email)||"<i>no email</i>"}</div></td>
+    <td>${esc(c.company)||'<span class="mut">—</span>'}${c.title?`<div class="mut">${esc(c.title)}</div>`:""}</td>
+    <td><span class="seg">${esc(c.segment)}</span></td>
+    <td>${esc(c.country)||'<span class="mut">—</span>'}</td>
+    <td>${statusTag(c)}</td>
+    <td><span class="pri-${c.priority}">${esc(c.priority)}</span></td>
+    <td>${conflictBadge(c)}</td>
+    <td class="mut">${esc(c.consent)}</td>
+    <td>${nl(c)}</td></tr>`).join("");
+  return `<table><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+}
+function rawOf(nc){ return DATA.find(d=>d.id===nc.id); }
+function renderBoard(list){
+  if(!list.length)return `<div class="empty">No contacts match these filters.</div>`;
+  const g={}; list.forEach(c=>{(g[c.status]=g[c.status]||[]).push(c);});
+  const order=STATUS_ORDER.filter(s=>g[s]).concat(Object.keys(g).filter(s=>!STATUS_ORDER.includes(s)));
+  return `<div class="board">`+order.map(k=>{
+    const cs=sortList(g[k]);
+    return `<div class="col"><h3>${esc(k)} <span>${cs.length}</span></h3>`+cs.map(c=>`<div class="card" onclick="openDrawer(${DATA.indexOf(rawOf(c))})"><div class="cn">${esc(c.name)} ${conflictBadge(c)}</div><div class="cc">${esc(c.company)||"—"}${c.country?" · "+esc(c.country):""}${c.title?" · "+esc(c.title):""}</div></div>`).join("")+`</div>`;
+  }).join("")+`</div>`;
+}
+function render(){ tiles(); document.getElementById("main").innerHTML=VIEW==="table"?renderTable(filtered()):renderBoard(filtered()); }
+function setView(v){VIEW=v;document.getElementById("vTable").classList.toggle("on",v==="table");document.getElementById("vBoard").classList.toggle("on",v==="board");render();}
+
+function openDrawer(idx){
+  const c=normalize(DATA[idx]); if(!c)return;
+  const d=document.getElementById("drawer");
+  d.innerHTML=`<div class="dh"><button class="x" onclick="closeDrawer()">×</button>
+    <h2>${esc(c.name)}</h2><div class="co">${esc(c.company)||"—"}${c.title?" · "+esc(c.title):""}</div>
+    <div style="margin-top:8px">${statusTag(c)} ${conflictBadge(c)} ${c.email?`<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>`:'<span class="mut">no email</span>'}</div></div>
+    <div class="db">
+      <div class="row2"><div class="fld"><label>Segment</label><div class="v">${esc(c.segment)}</div></div><div class="fld"><label>Country · Region</label><div class="v">${esc(c.country)||"—"}${c.region?" · "+esc(c.region):""}</div></div></div>
+      <div class="row2"><div class="fld"><label>Priority</label><div class="v">${esc(c.priority)}</div></div><div class="fld"><label>Consent (PDPA)</label><div class="v">${esc(c.consent)}</div></div></div>
+      <div class="row2"><div class="fld"><label>Newsletter</label><div class="v">${esc(c.newsletter||"review")}</div></div><div class="fld"><label>Last contacted</label><div class="v">${esc(c.lastContact)||"—"}</div></div></div>
+      ${c.nextStep?`<div class="fld"><label>Next step</label><div class="v">${esc(c.nextStep)}</div></div>`:""}
+      <div class="fld"><label>Tags</label><div>${(c.tags||[]).map(t=>`<span class="tg">${esc(t)}</span>`).join("")||'<span class="mut">—</span>'}</div></div>
+      ${c.notes?`<div class="fld"><label>Notes</label><div class="v">${esc(c.notes)}</div></div>`:""}
+      <div class="fld"><label>Source · List · ID</label><div class="v mut">${esc(c.source)} · ${esc(c.list)} · ${esc(c.id)}</div></div>
+    </div>`;
+  d.classList.add("on"); document.getElementById("scrim").classList.add("on");
+}
+function closeDrawer(){document.getElementById("drawer").classList.remove("on");document.getElementById("scrim").classList.remove("on");}
+function exportData(){
+  const cols=["id","name","email","title","company","segment","country","region","list","status","priority","conflict","consent","newsletter","owner","lastContact","nextStep","source","tags","notes"];
+  const rows=all();
+  const csv=[cols.join(",")].concat(rows.map(r=>cols.map(k=>{let v=Array.isArray(r[k])?r[k].join("; "):(r[k]==null?"":r[k]);v=String(v).replace(/"/g,'""');return /[",\n]/.test(v)?`"${v}"`:v;}).join(","))).join("\n");
+  const b=new Blob([csv],{type:"text/csv"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="thc-contacts.csv";a.click();URL.revokeObjectURL(u);
+}
+function esc(s){return (s==null?"":String(s)).replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+</script>
+</body>
+</html>

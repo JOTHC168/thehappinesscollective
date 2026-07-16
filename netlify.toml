@@ -26,6 +26,12 @@
   to = "/work-saudi.html"
   status = 200
 
+# Private internal CRM (gated, encrypted, unlisted)
+[[redirects]]
+  from = "/crm"
+  to = "/crm.html"
+  status = 200
+
 # Trailing-slash cleanup
 [[redirects]]
   from = "/index.html"
@@ -47,3 +53,15 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Keep the internal CRM out of search engines and caches
+[[headers]]
+  for = "/crm.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/crm-data.js"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
