@@ -153,7 +153,7 @@
 
   <div class="toolbar">
     <div class="search"><input id="q" placeholder="Search name, company, email, country, title, tag…" oninput="render()"/></div>
-    <select class="f" id="fList" onchange="render()"><option value="">All lists</option><option>Rolodex</option><option>Pipeline</option></select>
+    <select class="f" id="fList" onchange="render()"><option value="">All lists</option><option>Rolodex</option><option>Pipeline</option><option>Trade</option></select>
     <select class="f" id="fSegment" onchange="render()"></select>
     <select class="f" id="fStatus" onchange="render()"><option value="">All statuses</option><option>Active</option><option>Prospect</option><option>Nurture</option><option>Watch</option><option>Hold</option><option>Client</option></select>
     <select class="f" id="fConflict" onchange="render()"><option value="">All conflict</option><option value="none">No conflict</option><option value="amber">Judgement call</option><option value="red">Conflict — hold</option><option value="client">Current client</option></select>
@@ -214,7 +214,7 @@ function normalize(c){
   r.list=r.list||(r.source==="THC pipeline"?"Pipeline":"Rolodex");
   r.status=r.status||(r.conflict==="client"?"Client":r.conflict==="red"?"Hold":r.conflict==="amber"?"Nurture":"Active");
   if(!r.priority){const t=r.tags||[];r.priority=(r.conflict==="red"||t.includes("enrich"))?"Low":(t.includes("nto")||r.segment==="Industry Association"||t.includes("thc-prospect")||t.includes("thc-channel"))?"High":"Medium";}
-  r.consent=r.consent||"None"; r.owner=r.owner||"Justin"; r.lastContact=r.lastContact||""; r.nextStep=r.nextStep||"";
+  r.consent=r.consent||"None"; r.phone=r.phone||""; r.owner=r.owner||"Justin"; r.lastContact=r.lastContact||""; r.nextStep=r.nextStep||"";
   return r;
 }
 function all(){ return DATA.map(normalize); }
@@ -286,7 +286,8 @@ function openDrawer(idx){
     <div class="db">
       <div class="row2"><div class="fld"><label>Segment</label><div class="v">${esc(c.segment)}</div></div><div class="fld"><label>Country · Region</label><div class="v">${esc(c.country)||"—"}${c.region?" · "+esc(c.region):""}</div></div></div>
       <div class="row2"><div class="fld"><label>Priority</label><div class="v">${esc(c.priority)}</div></div><div class="fld"><label>Consent (PDPA)</label><div class="v">${esc(c.consent)}</div></div></div>
-      <div class="row2"><div class="fld"><label>Newsletter</label><div class="v">${esc(c.newsletter||"review")}</div></div><div class="fld"><label>Last contacted</label><div class="v">${esc(c.lastContact)||"—"}</div></div></div>
+      <div class="row2"><div class="fld"><label>Newsletter</label><div class="v">${esc(c.newsletter||"review")}</div></div><div class="fld"><label>Phone</label><div class="v">${c.phone?`<a href="tel:${esc(c.phone)}">${esc(c.phone)}</a>`:"—"}</div></div></div>
+      <div class="fld"><label>Last contacted</label><div class="v">${esc(c.lastContact)||"—"}</div></div>
       ${c.nextStep?`<div class="fld"><label>Next step</label><div class="v">${esc(c.nextStep)}</div></div>`:""}
       <div class="fld"><label>Tags</label><div>${(c.tags||[]).map(t=>`<span class="tg">${esc(t)}</span>`).join("")||'<span class="mut">—</span>'}</div></div>
       ${c.notes?`<div class="fld"><label>Notes</label><div class="v">${esc(c.notes)}</div></div>`:""}
@@ -296,7 +297,7 @@ function openDrawer(idx){
 }
 function closeDrawer(){document.getElementById("drawer").classList.remove("on");document.getElementById("scrim").classList.remove("on");}
 function exportData(){
-  const cols=["id","name","email","title","company","segment","country","region","list","status","priority","conflict","consent","newsletter","owner","lastContact","nextStep","source","tags","notes"];
+  const cols=["id","name","email","phone","title","company","segment","country","region","list","status","priority","conflict","consent","newsletter","owner","lastContact","nextStep","source","tags","notes"];
   const rows=all();
   const csv=[cols.join(",")].concat(rows.map(r=>cols.map(k=>{let v=Array.isArray(r[k])?r[k].join("; "):(r[k]==null?"":r[k]);v=String(v).replace(/"/g,'""');return /[",\n]/.test(v)?`"${v}"`:v;}).join(","))).join("\n");
   const b=new Blob([csv],{type:"text/csv"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="thc-contacts.csv";a.click();URL.revokeObjectURL(u);
