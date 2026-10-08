@@ -331,80 +331,39 @@
 
   /* ─── Services ─── 5 things, done quietly well ─── */
   .services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:72px}
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:clamp(14px,1.6vw,22px);
+  .svc-list{list-style:none;margin-top:40px;border-top:1px solid var(--rule)}
+  .svc-row{
+    display:grid;grid-template-columns:38px 34px 1fr minmax(0,42%);
+    align-items:center;gap:clamp(12px,1.8vw,26px);
+    padding:11px 10px;border-bottom:1px solid var(--rule);
+    position:relative;transition:background .3s ease;
   }
-  .svc{
-    background:var(--paper);border:1px solid var(--rule);border-radius:14px;
-    padding:24px 22px 22px;
-    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    position:relative;overflow:hidden;
+  .svc-row:hover{background:var(--paper)}
+  .svc-row::after{
+    content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;
+    background:var(--accent);transition:width .5s cubic-bezier(.2,.6,.2,1);
   }
-  .svc:hover{
-    transform:translateY(-4px);border-color:rgba(217,84,43,.45);
-    box-shadow:0 24px 48px -32px rgba(26,24,22,.35);
+  .svc-row:hover::after{width:100%}
+  .svc-row .n{
+    font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:.22em;
+    font-weight:700;color:var(--ink-soft);transition:color .3s ease;
   }
-  .svc::after{
-    content:"";position:absolute;top:0;left:0;height:2px;width:0;
-    background:var(--accent);transition:width .45s cubic-bezier(.2,.6,.2,1);
+  .svc-row:hover .n{color:var(--accent)}
+  .svc-row .ico{
+    width:34px;height:34px;border-radius:10px;flex:0 0 auto;
+    background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
   }
-  .svc:hover::after{width:100%}
-  .svc .card-head{margin-bottom:16px}
-  .svc h3{
+  .svc-row h3{
     font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
-    font-size:clamp(22px,2.2vw,30px);line-height:1.05;margin-bottom:14px;
+    font-size:clamp(20px,1.7vw,25px);line-height:1.05;
   }
-  .svc p{
-    font-size:14px;line-height:1.55;color:var(--ink-soft);max-width:32ch;
-  }
-  .svc .del{
-    margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--ink);font-weight:600;
-  }
-  .svc .aud{
-    margin-top:14px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--accent);font-weight:700;
+  .svc-row .ico svg{width:17px;height:17px}
+  .svc-row .svc-tags{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:600;line-height:1.7;text-align:right;font-size:10px;
   }
 
-  /* ─── Feature blocks (Apple-style alternating image/text) ─── */
-  .feature{padding:clamp(60px,8vh,100px) 0}
-  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,6vw,96px);align-items:center}
-  .feature.flip .feature-grid{grid-template-columns:1fr 1fr;direction:rtl}
-  .feature.flip .feature-grid>*{direction:ltr}
-  .feature-media{
-    aspect-ratio:4/5;border-radius:8px;overflow:hidden;
-    background:var(--ink-2);position:relative;
-  }
-  .feature-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
-  .feature-media:hover img{transform:scale(1.03)}
-  .feature-caption{
-    position:absolute;left:18px;bottom:14px;color:var(--bone);
-    font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-    text-shadow:0 1px 8px rgba(0,0,0,.4);opacity:.9;
-  }
-  .feature-text h2{
-    font-family:'Cormorant Garamond',serif;font-weight:300;
-    font-size:var(--t-h1);line-height:1.02;letter-spacing:-.015em;
-    margin-bottom:24px;max-width:18ch;
-  }
-  .feature-text h2 em{font-style:italic}
-  .feature-text p{
-    font-size:var(--t-lead);line-height:1.5;color:var(--ink-soft);max-width:46ch;
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  }
-  .feature-text .meta{
-    margin-top:36px;display:grid;grid-template-columns:repeat(3,auto);gap:36px;
-  }
-  .feature-text .meta div{display:flex;flex-direction:column;gap:6px}
-  .feature-text .meta .num{
-    font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--accent);
-    font-size:48px;line-height:1;
-  }
-  .feature-text .meta .lbl{
-    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;
-  }
 
   /* ─── Pillars, merged 2-up ─── */
   .pillars{padding:clamp(64px,9vh,120px) 0;background:var(--paper)}
@@ -770,7 +729,11 @@
 
   /* ─── Responsive ─── */
   @media (max-width: 960px){
-    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .svc-row{grid-template-columns:34px 1fr auto;grid-template-areas:"ico title n" "tags tags tags";row-gap:6px;padding:12px 4px}
+    .svc-row .ico{grid-area:ico}
+    .svc-row h3{grid-area:title}
+    .svc-row .n{grid-area:n}
+    .svc-row .svc-tags{grid-area:tags;text-align:left}
     .projects-grid{grid-template-columns:1fr 1fr}
     .feature-grid,.founder-grid,.manifesto .container{grid-template-columns:1fr;gap:36px}
     .feature.flip .feature-grid{direction:ltr}
@@ -797,7 +760,6 @@
   }
   @media (max-width: 640px){
     .projects-grid{grid-template-columns:1fr}
-    .services-grid{grid-template-columns:1fr}
     .founder-stats{grid-template-columns:repeat(3,1fr);gap:14px}
     .founder-stats .n{font-size:40px}
     .hero{min-height:88svh}
@@ -872,7 +834,7 @@
       in <em>Asia's</em> voice<span class="stop">.</span>
     </h1>
     <p class="hero-sub reveal d3">
-      Headquartered in Singapore, at work across Asia-Pacific and the Middle East. For hotels, destinations and hospitality brands, we become your team in the markets you sell to: the local knowledge of a regional hire, at a fraction of the cost.
+      Tourism marketing and representation for hotels, destinations and travel brands. Headquartered in Singapore, at work across Asia-Pacific and the Gulf.
     </p>
     <div class="hero-meta reveal d4">
       <div class="seal accent">悦</div>
@@ -957,7 +919,7 @@
         <h2 class="sec-title reveal d2">Built for the people<br>who <em>fill the rooms</em><span class="stop">.</span></h2>
       </div>
       <p class="sec-lead reveal d3" style="max-width:42ch;margin-top:0">
-        If you sell a place, whether a hotel, a country, or an experience, to travellers in Asia and the Middle East, this is the work we do.
+        If you sell a place to travellers in Asia and the Gulf, this is for you.
       </p>
     </div>
 
@@ -966,19 +928,16 @@
         <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 17h20"/></svg></span><span class="n">01</span></div>
         <h3>Hotels &amp; resorts</h3>
         <p>A presence in your source markets, without opening an office in each one.</p>
-        <div class="for">Hotels · Resorts · Groups</div>
       </div>
       <div class="who-card reveal d2">
         <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13.5 13.5 0 0 1 0 18"/><path d="M12 3a13.5 13.5 0 0 0 0 18"/></svg></span><span class="n">02</span></div>
         <h3>Tourism boards &amp; DMOs</h3>
         <p>Honest counsel, real local knowledge, and a trade pipeline that moves visitors.</p>
-        <div class="for">DMOs · NTOs · Regions</div>
       </div>
       <div class="who-card reveal d3">
         <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="5" y="7" width="14" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M9 11v5"/><path d="M15 11v5"/></svg></span><span class="n">03</span></div>
         <h3>Travel &amp; hospitality brands</h3>
         <p>Entering a region before you have the network, or the nuance, for it.</p>
-        <div class="for">Operators · Platforms · Brands</div>
       </div>
     </div>
   </div>
@@ -997,64 +956,56 @@
       </p>
     </div>
 
-    <div class="services-grid">
-      <div class="svc reveal">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><span class="n">01</span></div>
+    <ul class="svc-list">
+      <li class="svc-row reveal">
+        <span class="n">01</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
         <h3>Representation &amp; trade sales</h3>
-        <p>Your sales office in-market, from Singapore to Shanghai to Dubai.</p>
-        <div class="del">Sales calls · Trade training · MICE &amp; consortia</div>
-        <div class="aud">Hotels · Resorts · DMOs</div>
-      </div>
-      <div class="svc reveal d2">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="m8 12.5 2-2 2 1.5 3-3.5"/></svg></span><span class="n">02</span></div>
+        <span class="svc-tags">Sales calls · Trade training · MICE &amp; consortia</span>
+      </li>
+      <li class="svc-row reveal d2">
+        <span class="n">02</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="m8 12.5 2-2 2 1.5 3-3.5"/></svg></span>
         <h3>Market research &amp; entry</h3>
-        <p>Before you spend in a market, know it. Read plainly, in language you can act on.</p>
-        <div class="del">Market reads · Demand &amp; source data · Entry plans</div>
-        <div class="aud">Hotels · DMOs · Brands</div>
-      </div>
-      <div class="svc reveal d3">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 3h12l3 5-9 13L3 8l3-5z"/><path d="M3 8h18"/><path d="M8 3l1.5 5"/><path d="M16 3l-1.5 5"/><path d="M9.5 8 12 21l2.5-13"/></svg></span><span class="n">03</span></div>
+        <span class="svc-tags">Market reads · Demand &amp; source data · Entry plans</span>
+      </li>
+      <li class="svc-row reveal">
+        <span class="n">03</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 3h12l3 5-9 13L3 8l3-5z"/><path d="M3 8h18"/><path d="M8 3l1.5 5"/><path d="M16 3l-1.5 5"/><path d="M9.5 8 12 21l2.5-13"/></svg></span>
         <h3>Brand &amp; positioning</h3>
-        <p>For hotels and destinations finding their voice: the architecture beneath the welcome.</p>
-        <div class="del">Positioning · Voice &amp; story · Brand architecture</div>
-        <div class="aud">Hotels · Destinations</div>
-      </div>
-      <div class="svc reveal d4">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M10 13a5 5 0 0 0 7.54.54l2.12-2.12a5 5 0 0 0-7.07-7.07L11.5 5.5"/><path d="M14 11a5 5 0 0 0-7.54-.54L4.34 12.58a5 5 0 0 0 7.07 7.07l1.09-1.15"/></svg></span><span class="n">04</span></div>
+        <span class="svc-tags">Positioning · Voice &amp; story · Brand architecture</span>
+      </li>
+      <li class="svc-row reveal d2">
+        <span class="n">04</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M10 13a5 5 0 0 0 7.54.54l2.12-2.12a5 5 0 0 0-7.07-7.07L11.5 5.5"/><path d="M14 11a5 5 0 0 0-7.54-.54L4.34 12.58a5 5 0 0 0 7.07 7.07l1.09-1.15"/></svg></span>
         <h3>Partnerships &amp; distribution</h3>
-        <p>Distribution built on relationships, measured in nights, not impressions.</p>
-        <div class="del">Trade contracting · OTA strategy · Partner deals</div>
-        <div class="aud">Hotels · Operators</div>
-      </div>
-      <div class="svc reveal">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M3 11l18-6v14L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><span class="n">05</span></div>
+        <span class="svc-tags">Trade contracting · OTA strategy · Partner deals</span>
+      </li>
+      <li class="svc-row reveal">
+        <span class="n">05</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M3 11l18-6v14L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
         <h3>Marketing &amp; campaigns</h3>
-        <p>Campaigns planned on booking windows, sized to the year you actually have.</p>
-        <div class="del">Campaign planning · Media · Seasonal pushes</div>
-        <div class="aud">Hotels · DMOs</div>
-      </div>
-      <div class="svc reveal d2">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span class="n">06</span></div>
+        <span class="svc-tags">Campaign planning · Media · Seasonal pushes</span>
+      </li>
+      <li class="svc-row reveal d2">
+        <span class="n">06</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
         <h3>PR &amp; communications</h3>
-        <p>Coverage, fam trips, and counsel calm enough for a difficult week.</p>
-        <div class="del">Media relations · Fam trips · Crisis counsel</div>
-        <div class="aud">Hotels · DMOs · Brands</div>
-      </div>
-      <div class="svc reveal d3">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 11h18"/></svg></span><span class="n">07</span></div>
+        <span class="svc-tags">Media relations · Fam trips · Crisis counsel</span>
+      </li>
+      <li class="svc-row reveal">
+        <span class="n">07</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 11h18"/></svg></span>
         <h3>Events, roadshows &amp; tradeshows</h3>
-        <p>From ILTM Shanghai to ATM Dubai, owned end to end.</p>
-        <div class="del">Tradeshows · Roadshows · Activations</div>
-        <div class="aud">Hotels · DMOs</div>
-      </div>
-      <div class="svc reveal d4">
-        <div class="card-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg></span><span class="n">08</span></div>
+        <span class="svc-tags">Tradeshows · Roadshows · Activations</span>
+      </li>
+      <li class="svc-row reveal d2">
+        <span class="n">08</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg></span>
         <h3>Social, KOL &amp; Chinese platforms</h3>
-        <p>Programmes that read native on WeChat, RED and Douyin, never translated.</p>
-        <div class="del">WeChat &amp; RED · KOL programmes · Native content</div>
-        <div class="aud">Hotels · DMOs · Brands</div>
-      </div>
-    </div>
+        <span class="svc-tags">WeChat &amp; RED · KOL programmes · Native content</span>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -1069,7 +1020,7 @@
         </div>
         <div class="eyebrow sec-eyebrow">Pillar I</div>
         <h2>Quiet luxury<span class="stop">.</span></h2>
-        <p>The kind that doesn't announce itself. The 12-room ryokan on the Noto coast. The desert lodge beyond AlUla you book a year ahead. The reopening that doesn't shout, but is full by the second weekend.</p>
+        <p>The 12-room ryokan. The desert lodge you book a year ahead. The reopening that's full by the second weekend.</p>
         <div class="meta">
           <div><span class="num">15+</span><span class="lbl">Years in luxury<br>&amp; hospitality</span></div>
           <div><span class="num">20+</span><span class="lbl">Markets known,<br>two regions</span></div>
@@ -1083,7 +1034,7 @@
         </div>
         <div class="eyebrow sec-eyebrow">Pillar II</div>
         <h2>Warm intelligence<span class="stop">.</span></h2>
-        <p>Data with a pulse. We measure what matters: nights, source markets, channel mix. Then we sit with the GM, the DMO, the brand director, and we figure out what to do about it.</p>
+        <p>Data with a pulse: nights, source markets, channel mix, and what to do about them.</p>
         <div class="meta">
           <div><span class="num">3-5×</span><span class="lbl">Average<br>ROAS</span></div>
           <div><span class="num">3</span><span class="lbl">Flagship case<br>programmes</span></div>
@@ -1098,9 +1049,9 @@
 <section class="sec network" id="network">
   <div class="container">
     <div class="eyebrow sec-eyebrow reveal" style="color:var(--accent)">03 · The Network</div>
-    <h2 class="sec-title reveal d2" style="color:var(--bone)">Twenty markets.<br>As many <em>alphabets</em><span class="stop">.</span></h2>
+    <h2 class="sec-title reveal d2" style="color:var(--bone)">From the Gulf to the Pacific.<br>Asia, <em>known by heart</em><span class="stop">.</span></h2>
     <p class="sec-lead reveal d3" style="color:rgba(241,233,218,.72);max-width:56ch">
-      No global playbooks. We start with the room, the route, the regulator, and write a plan that could only be yours.
+      No global playbooks. A plan written for your rooms, your routes, your season.
     </p>
 
     <div class="net-grid">
@@ -1124,18 +1075,18 @@
         <a class="net-proof reveal d2" href="work-hsbc.html">
           <div class="tag">Mainland China · Luxury events</div>
           <h3>Three tier 1 cities, one programme<span class="stop">.</span></h3>
-          <p>A hybrid client-event programme for HSBC Global Wealth, delivered across Shanghai, Beijing and Shenzhen on consecutive days.</p>
+          <p>HSBC Global Wealth events across Shanghai, Beijing and Shenzhen.</p>
           <div class="go">Read the case</div>
         </a>
         <div class="net-proof reveal d3">
           <div class="tag">Mainland China · Travel trade</div>
           <h3>ILTM Shanghai, on the floor<span class="stop">.</span></h3>
-          <p>Buyer relationships built in person at Asia's flagship luxury travel show, for hotels and destinations selling into China.</p>
+          <p>Buyer relationships built in person at Asia's flagship luxury travel show.</p>
         </div>
         <a class="net-proof reveal d4" href="projects.html#sydney">
           <div class="tag">Australia · Offline activation</div>
           <h3>Singapore, staged in Sydney<span class="stop">.</span></h3>
-          <p>A consumer activation for a leading Asia-Pacific travel platform, restaging Singapore's icons and flavours to reopen Australian demand.</p>
+          <p>A consumer activation restaging Singapore's icons to reopen Australian demand.</p>
           <div class="go">See the work</div>
         </a>
       </div>
@@ -1257,7 +1208,7 @@
         <div class="proj-body">
           <div class="proj-tag">HSBC · Events &amp; experience</div>
           <h3 class="proj-title">Three cities, one room<span class="stop">.</span></h3>
-          <p class="proj-meta">HSBC's first client event since the pandemic began: a three-city hybrid programme for high-net-worth clients across mainland China.</p>
+          <p class="proj-meta">A three-city hybrid programme for high-net-worth clients in mainland China.</p>
           <div class="proj-link">Read the case</div>
         </div>
       </a>
@@ -1269,7 +1220,7 @@
         <div class="proj-body">
           <div class="proj-tag">JNTO · Destination marketing</div>
           <h3 class="proj-title">Okaeri<span class="stop">.</span> Welcome back.</h3>
-          <p class="proj-meta">A consumer campaign for Japan's reopening, rebuilding arrivals and spreading them beyond Tokyo, Kyoto and Osaka.</p>
+          <p class="proj-meta">Japan's reopening campaign, spreading arrivals beyond the golden route.</p>
           <div class="proj-link">Read the case</div>
         </div>
       </a>
@@ -1281,7 +1232,7 @@
         <div class="proj-body">
           <div class="proj-tag">Saudi Tourism · Go-to-market &amp; trade</div>
           <h3 class="proj-title">Selling a country before it was built<span class="stop">.</span></h3>
-          <p class="proj-meta">A global B2B programme building trade demand for Saudi's Vision 2030 destinations, ahead of the supply.</p>
+          <p class="proj-meta">Global trade demand for Vision 2030 destinations, built ahead of the supply.</p>
           <div class="proj-link">Read the case</div>
         </div>
       </a>
@@ -1290,8 +1241,7 @@
     <p class="work-proof reveal">
       Programmes delivered with <strong>HSBC Global Wealth</strong>, the
       <strong>Japan National Tourism Organization</strong> and the
-      <strong>Saudi Tourism Authority</strong>, from three-city event series in
-      mainland China to global trade campaigns.
+      <strong>Saudi Tourism Authority</strong>.
     </p>
   </div>
 </section>
@@ -1302,24 +1252,24 @@
     <div class="eyebrow sec-eyebrow reveal" style="color:var(--accent)">06 · The Approach</div>
     <h2 class="sec-title reveal d2" style="color:var(--bone)">Assess. Strategise.<br><em>Execute</em><span class="stop">.</span></h2>
     <p class="sec-lead reveal d3" style="color:rgba(241,233,218,.7);max-width:50ch">
-      No vast retainers, no opaque dashboards. A small team, a clear plan, and the rare pleasure of someone who picks up the phone.
+      A small team, a clear plan, someone who picks up the phone.
     </p>
 
     <div class="approach-grid">
       <div class="step reveal">
         <span class="n">i.</span>
         <h3>Assess</h3>
-        <p>Two to four weeks. We sit with you in the room, audit the marketing, the partnerships, the brand, then bring back what we see, plainly.</p>
+        <p>Two to four weeks in your business. We bring back what we see, plainly.</p>
       </div>
       <div class="step reveal d2">
         <span class="n">ii.</span>
         <h3>Strategise</h3>
-        <p>A working plan, set on the calendar of your year. Channels, partners, source markets, moments. Built around the room, not the rate card.</p>
+        <p>A plan set on the calendar of your year, built around the room, not the rate card.</p>
       </div>
       <div class="step reveal d3">
         <span class="n">iii.</span>
         <h3>Execute</h3>
-        <p>We stay. Campaigns, contracts, activations, events. Monthly readouts you can read on the train, not decks you'll never open.</p>
+        <p>We stay: campaigns, contracts, activations, events, and readouts you can read on the train.</p>
       </div>
     </div>
   </div>
@@ -1337,10 +1287,7 @@
         <h2>Serial hosts,<br><em>by trade and by nature</em><span class="stop">.</span></h2>
         <hr class="rule" />
         <p class="bio">
-          The Happiness Collective is a deliberately small team that has spent fifteen years building partnerships across the travel ecosystems of Asia, the Pacific and the Middle East: from luxury hospitality in Las Vegas and Shanghai, to regional partnerships for a global B2B travel-distribution platform, to experience commerce at one of Asia's leading travel platforms.
-        </p>
-        <p class="bio" style="margin-top:20px">
-          We read rooms for a living. We think the best marketing in hospitality still happens between two people, in a lobby, after the bags are up.
+          A deliberately small team, fifteen years in the travel ecosystems of Asia, the Pacific and the Middle East: luxury hospitality, global B2B distribution, experience commerce. We think the best marketing in hospitality still happens between two people, in a lobby.
         </p>
 
         <div class="founder-stats">
